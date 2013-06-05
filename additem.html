@@ -40,9 +40,15 @@
 						<li><input type="radio" checked value="read" id="read" name="read"/><label for="read_it">Read It</label></li>
 						<li><input type="radio" value="not_read" id="not_read" name="read"/><label for="not_read">Not Read Yet</label></li>
 					</ul>
+				<li>How would you rate this book?</li>
+					<label>1</label><input type="range" min="0" max="10" value="0" step="1" name="rating" list="rating"><label>10</label>
 				<li>What date did you add this book to your library?</li>
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
 				<input type="date" id="dateAdded"  />
+				<li>What date was the book published?</li>
+				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
+				<input type="date" id="dateAdded"  />
+				<!-- the code below is my current date chooser. I don't like this. But the other one doesn't work. -->	
 					<legend>Date Added</legend> 
   					<label for="month_added">Month</label> 
   						<select id="month_added" name="month_added" /> 
@@ -117,8 +123,43 @@
 								<option value="2013">2013</option>       
 								<option value="2014">2014</option>              
 					</select> 
-  <span class="inst">(Month-Day-Year)</span>
-			</ul>
+  					<span class="inst">(Month-Day-Year)</span>
+				<li>What is the genre of the book?</li>
+					<ul>	
+						<select>
+							<optgroup label="Fiction Genres">
+								<option value="poetry">Poetry</option>
+								<option value="paranormal">Paranormal</option>
+								<option value="romance">Romance</option>
+								<option value="classics">Classics</option>
+								<option value="comic_graphic">Comics and Graphic Novels</option>
+								<option value="scifi">Science Fiction</option>
+								<option value="crime">Crime Fiction</option>
+								<option value="fantasy">Fantasy</option>
+								<option value="horror">Horror</option>
+								<option value="witches_wizards_magic">Witches, wizards, magic</option>
+							<optgroup label="Nonfiction Genres">
+								<option value="autobiography">Autobiography and memoir</option>
+								<option value="design">Design</option>
+								<option value="house_and_garden">House and Garden</option>
+								<option value="music">Music</option>
+								<option value="biography">Biography</option>
+								<option value="business_finance">Business and Finance</option>
+								<option value="languages">Language</option>
+								<option value="sports">Sports</option>
+								<option value="recipes">Food, drink, recipes</option>
+								<option value="travel_guides">Travel Guides</option>
+								<option value="true_crime">True Crime</option>
+								<option value="health_mind_body">Health, Mind, Body</option>
+								<option value="history">History</option>
+								<option value="religion">Religion</option>
+								<option value="computers">Computers, the Net, Programming, etc</option>
+								<option value="technical">Technical</option>
+								<option value="craft_hobby">Crafts and Hobbies</option>
+								<option value="exercise">Exercise</option>
+						</select>
+					</ul>
+				</ul>
 		</fieldset>
 		<fieldset>
 			<legend>Optional Information</legend>
@@ -140,28 +181,13 @@
 					<li><input type="radio" checked value="fiction" id="fiction" name="type" </><label for="fiction">Fiction (not true)</label></li>
 					<li><input type="radio" value="nonfiction" id="nonfiction" name="type" </><label for="nonfiction">Nonfiction (true)</label></li>
 				</ul>
+				<li><label for="comments">What are your comments on the book? Likes, Dislikes, Plot, etc.:</label><br /><textarea id="comments"></textarea></li>
 			</ul>	
 		</fieldset>
-		
-		<select>
-			<optgroup label="Genre">
-				<option> </option>
-		</select>
-	
+		<input type="submit" value="Put in Satchel" />
 	</form>
-
-
-Date added to library (date)
-Rating (range)
-Date printed (date)  
-Genre (list) 
-
-
-
-
-
 	<footer>
-    	<p>June 6, 2013, Jenney Grover</p>
+    	<small>June 6, 2013, Jenney Grover</small>
     	<small>&copy 2013 Duffer Design. All Rights Reserved.</small>
 	</footer>
 	</body>
