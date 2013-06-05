@@ -37,10 +37,85 @@
 				<li><label for="isbn">ISBN:</label><input type="number" id="isbn"</li>
 				<li>Have you read this book?</li>
 					<ul>
-						<li><input type="checkbox" checked value="read" id="read" /><label for="read it">Read It</label></li>
-						<li><input type="checkbox" value="not read" id="not read" /><label for="not read">Not Read Yet</label></li>
+						<li><input type="radio" checked value="read" id="read" name="read"/><label for="read_it">Read It</label></li>
+						<li><input type="radio" value="not_read" id="not_read" name="read"/><label for="not_read">Not Read Yet</label></li>
 					</ul>
-				
+				<li>What date did you add this book to your library?</li>
+					<legend>Date Added</legend> 
+  					<label for="month_added">Month</label> 
+  						<select id="month_added" name="month_added" /> 
+    							<option>January</option>       
+								<option>February</option>       
+								<option>March</option>       
+								<option>April</option>       
+								<option>May</option>       
+								<option>June</option>       
+								<option>July</option>       
+								<option>August</option>       
+								<option>September</option>       
+								<option>October</option>       
+								<option>November</option>       
+								<option>December</option>       
+  						</select> - 
+					<label for="day_added">Day</label> 
+					<select id="day_added" name="day_added" /> 
+								<option>1</option>       
+								<option>2</option>       
+								<option>3</option>       
+								<option>4</option>       
+								<option>5</option>       
+								<option>6</option>       
+								<option>7</option>       
+								<option>8</option>       
+								<option>9</option>       
+								<option>10</option>       
+								<option>11</option>       
+								<option>12</option>       
+								<option>13</option>       
+								<option>14</option>       
+								<option>15</option>       
+								<option>16</option>       
+								<option>17</option>       
+								<option>18</option>       
+								<option>19</option>       
+								<option>20</option>       
+								<option>21</option>       
+								<option>22</option>       
+								<option>23</option>       
+								<option>24</option>       
+								<option>25</option>       
+								<option>26</option>       
+								<option>27</option>       
+								<option>28</option>       
+								<option>29</option>       
+								<option>30</option>       
+								<option>31</option>       
+  					</select> - 
+					<label for="year_added">Year</label> 
+					<select id="year_added" name="year_added" /> 
+								<option>1994</option>       
+								<option>1995</option>       
+								<option>1996</option> 
+								<option>1997</option>       
+								<option>1998</option>       
+								<option>1999</option>       
+								<option>2000</option>
+								<option>2001</option>       
+								<option>2002</option>       
+								<option>2003</option>       
+								<option>2004</option>
+								<option>2005</option>       
+								<option>2006</option>       
+								<option>2007</option>       
+								<option>2008</option>
+								<option>2009</option>       
+								<option>2010</option>       
+								<option>2011</option>       
+								<option>2012</option>       
+								<option>2013</option>       
+								<option>2014</option>              
+					</select> 
+  <span class="inst">(Month-Day-Year)</span>
 			</ul>
 		</fieldset>
 		<fieldset>
@@ -48,11 +123,12 @@
 			<ul>
 				<li>Is this a permanent addition to your library?</li>
 				<ul>
-					<li><input type="radio" checked value="purchased" id="purchased" name="bought" </><label for="purchased">Purchased</label></li>
-					<li><input type="radio" value="borrowed" id="borrowed" name="borrowed" </><label for="borrowed">Borrowed</label></li>
+					<li><input type="radio" checked value="purchased" id="purchased" name="permanent" </><label for="purchased">Purchased</label></li>
+					<li><input type="radio" value="borrowed" id="borrowed" name="permanent" </><label for="borrowed">Borrowed</label></li>
 				</ul>
 				<li>Is this book paperback, hardcover, or on a mobile device?</li>	
 				<ul>
+				<!-- the name="cover" means that only one of the three can be selected -->
 					<li><input type="radio" checked value="paperback" id="paperback" name="cover" </><label for="paperback">Paperback</label></li>
 					<li><input type="radio" value="hardcover" id="hardcover" name="cover" </><label for="hardcover">Hardcover</label></li>
 					<li><input type="radio" value="mobile" id="mobile" name="cover" </><label for="mobile">Mobile</label></li>
@@ -75,8 +151,7 @@
 
 Date added to library (date)
 Rating (range)
-Date printed (date) 
-Fiction/nonfiction (check box) 
+Date printed (date)  
 Genre (list) 
 
 
