@@ -31,9 +31,9 @@
 		<fieldset>
 			<legend>Your book's information</legend>
 			<ul>
-				<li><label for="bname">Book's Name:</label><input type="text" id="bname" /></li>
-				<li><label for="aname">Author(s):</label><input type="text" id="aname" /></li>
-				<li><label for="isbn">ISBN:</label><input type="text" id="isbn" /></li>
+				<li><label for="bname">Book's Name:</label><br /><input type="text" id="bname" /></li>
+				<li><label for="aname">Author(s):</label><br /><input type="text" id="aname" /></li>
+				<li><label for="isbn">ISBN:</label><br /><input type="text" id="isbn" /></li>
 				<li>Have you read this book?
 					<ul>
 						<li><input type="radio" checked value="read" id="read" name="read"/><label for="read">Read It</label></li>
@@ -41,15 +41,15 @@
 					</ul>
 				</li>
 				<li>How would you rate this book?
-					<label>1</label><input type="range" min="0" max="10" value="0" step="1" name="rating" list="rating" /><label>10</label>
+					<br /><label>1</label><input type="range" min="0" max="10" value="0" step="1" name="rating" list="rating" /><label>10</label>
 				</li>
 				<li>What date did you add this book to your library?
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
-					<input type="date" id="dateAdded"  />
+					<br /><input type="date" id="dateAdded"  />
 				</li>
 				<li>What date was the book published?
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
-					<input type="date" id="dateAdded"  />
+					<br /><input type="date" id="dateAdded"  />
 				</li>
 				<li>What is the genre of the book?
 					<ul>	
