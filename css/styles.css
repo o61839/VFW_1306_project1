@@ -1,0 +1,29 @@
+/* 
+	Jenney Grover
+	VFW 1306
+	Project 2
+	June 13, 2013
+*/
+
+body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding: 10px; color: #47006B; background: #FEFFBF; font-size: 24px;}
+#site-wrapper{}
+#content{width: 480px; height: 690px; overflow: scroll;}
+
+h1 {
+	margin: 10px 15px; 
+	text-align: center; 
+}
+
+h2 {
+	margin: 12px 15px; 
+	text-align: center; 
+}
+
+p {
+	color: #47006B; 
+	margin: 10px;
+	text-align: left;
+	font-variant: small-caps; 
+	line-height: 1.2em; 
+	text-indent: 10px; 
+}
