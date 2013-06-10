@@ -5,9 +5,10 @@
 	June 13, 2013
 */
 
-body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding: 10px; color: #47006B; background: #FEFFBF; font-size: 1.3pc;}
+body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding: 10px; color: #47006B; background: #FEFFD9; font-size: 1.3pc;}
 #site-wrapper{}
 #content{width: 480px; height: 690px; overflow: scroll;}
+/* does having this width and height change the html dimensions listed previously? */
 
 h1 {
 	margin: 10px 15px; 
@@ -30,4 +31,22 @@ p {
 
 a {
 	color: #009999;
+}
+
+legend {
+	color: #2D006B; 
+	font-weight: bold; 
+}
+
+form {
+	padding: 10px;
+	border-style: solid; 
+	border-color: #2D006B;
+	background: #EEE5FF; 
+}
+
+li {
+	margin: 8px; 
+	font-family: Verdana;
+	font-size: 0.9pc 
 }
