@@ -31,8 +31,8 @@ p {
 
 a {
 	color: #009999;
-	margin: 10px; 
-	font-size: 18px; 
+	margin: 8px; 
+	font-size: 16px; 
 }
 
 legend {
@@ -73,10 +73,13 @@ ul li {
  	border: 1px solid #400099;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px
+	/*-moz-border-radius: 6px*/
 }
 
 footer {
 	margin-top: 5px; 
-	font-size: 14px;
+	font-size: 12px;
 }
+
+.even{background: #fff;}
+.hasFocus{border: 2px solid #8C03FC;}
