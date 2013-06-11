@@ -5,7 +5,7 @@
 	June 13, 2013
 */
 
-//JavaScript Methods: .getElementByID()
+//JavaScript Methods: .getElementByID();
 
 var nameBook = document.getelementByID("bname");
 var nameAuthor = document.getelementByID("aname");
@@ -50,3 +50,7 @@ var computers = document.getelementByID("computers");
 var technical = document.getelementByID("technical");
 var craftHobby = document.getelementByID("craft_hobby");
 var exercise = document.getelementByID("exercise");
+
+//JavaScript Methods: .getElementsByTagName(); 
+
+var formAddBook = document.getElementsByTagName("form"); 
