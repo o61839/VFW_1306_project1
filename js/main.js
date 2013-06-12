@@ -134,7 +134,13 @@ var showInfo = function (){
 }
 
 var clearInfo = function (){
-	localStorage.clear()
+	var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
+	if(questionThem){
+		localStorage.clear()
+		alert("Your Satchel is now empty!");
+	} else {
+		alert("Your books are safe in the Satchel"); 
+	}
 }
 
 
