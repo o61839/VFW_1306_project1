@@ -92,6 +92,7 @@ var changeBorder = function(){
 }
 */
 
+//submitInfo function goes with the submitData button (Put in Satchel)
 var submitInfo = function(){
 	var myData = {}
 	myData.nameBook 	= document.getElementById("bname").value;
@@ -129,10 +130,12 @@ var submitInfo = function(){
 	alert("Your book is in your Satchel");
 }
 
+//showInfo function goes with the showData button (Show Satchel)
 var showInfo = function (){
 
 }
 
+//clearInfo function goes with the clearData button (Empty Satchel)
 var clearInfo = function (){
 	var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
 	if(questionThem){
