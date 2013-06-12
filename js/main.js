@@ -103,6 +103,8 @@ var submitInfo = function(){
 	myData.rating		= document.getElementById("rating").value; 
 	myData.genre		= document.getElementById("genre").value; 
 	//radio buttons: read/not read; purchased/borrowed; 3 cover types; fiction/nonfiction
+	//http://www.randomsnippets.com/2008/05/15/how-to-loop-through-checkboxes-or-radio-button-groups-via-javascript/
+	/* this function doesn't work yet???
 	function loopForm(form){
 		var cbResults = 'Checkboxes: ';
 		var radioResults = 'Radio buttons: ';
@@ -118,10 +120,10 @@ var submitInfo = function(){
 				}
 			}
 		}
-		//document.getElementById("cbResults").innerHTML = cbResults; 
-		//document.getElementById("radioResults").innerHTML = radioResults; 
+		document.getElementById("cbResults").innerHTML = cbResults; 
+		document.getElementById("radioResults").innerHTML = radioResults; 
 	}
-	myData.results		= [cbResults, radioResults]; 
+	myData.results		= [cbResults, radioResults]; */
 	keyValue = Math.floor(Math.random()*100001);
 	localStorage.setItem(keyValue, JSON.stringify(myData)); 
 	alert("Your book is in your Satchel");
@@ -132,7 +134,7 @@ var showInfo = function (){
 }
 
 var clearInfo = function (){
-
+	localStorage.clear()
 }
 
 
@@ -147,7 +149,7 @@ var clearInfo = function (){
 		comments.addEventListener("blur", changeBorder);*/
 submitData.addEventListener("click", submitInfo);
 //showData.addEventListener("click", showInfo);
-//clearData.addEventListener("click", clearInfo);
+clearData.addEventListener("click", clearInfo);
 
 
 
