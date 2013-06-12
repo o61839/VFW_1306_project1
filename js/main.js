@@ -102,6 +102,14 @@ var submitInfo = function(){
 	alert("Your book is in your Satchel");
 }
 
+var showInfo = function (){
+
+}
+
+var clearInfo = function (){
+
+}
+
 
 //Methods
 		/*nameBook.addEventListener("focus", changeBorder);
