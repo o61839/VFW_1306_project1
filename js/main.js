@@ -75,11 +75,11 @@ var changeBorder = function(){
 }
 
 nameBook.addEventListener("focus", changeBorder);
-nameBook.addEventListener("blur", defaultBorder);
+nameBook.addEventListener("blur", changeBorder);
 nameAuthor.addEventListener("focus", changeBorder);
-nameAuthor.addEventListener("blur", defaultBorder);
+nameAuthor.addEventListener("blur", changeBorder);
 isbnNumber.addEventListener("focus", changeBorder);
-isbnNumber.addEventListener("blur", defaultBorder);
+isbnNumber.addEventListener("blur", changeBorder);
 comments.addEventListener("focus", changeBorder);
-comments.addEventListener("blur", defaultBorder);
+comments.addEventListener("blur", changeBorder);
 console.log(nameBook); 
