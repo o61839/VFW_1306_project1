@@ -22,6 +22,8 @@ var mobile 		= document.getElementById("mobile");
 var fiction 	= document.getElementById("fiction");
 var nonFiction 	= document.getElementById("nonfiction");
 var comments 	= document.getElementById("comments");
+var rating		= document.getElementById("rating"); 
+var genre		= document.getElementById("genre"); 
 var poetry 		= document.getElementById("poetry");
 var paranormal 	= document.getElementById("paranormal");
 var romance 	= document.getElementById("romance");
@@ -92,8 +94,12 @@ var submitInfo = function(){
 	myData.isbnNumber 	= document.getElementById("isbn").value;
 	myData.dateAdded 	= document.getElementById("dateAdded").value;
 	myData.datePublish 	= document.getElementById("datePublished").value;
+	myData.comments 	= document.getElementById("comments").value;
+	myData.rating		= document.getElementById("rating").value; 
+	myData.genre		= document.getElementById("genre").value; 
 	keyValue = Math.floor(Math.random()*100001);
 	localStorage.setItem(keyValue, JSON.stringify(myData)); 
+	alert("Your book is in your Satchel");
 }
 
 
