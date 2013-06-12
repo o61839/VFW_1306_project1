@@ -7,6 +7,7 @@
 
 //JavaScript Methods: .getElementByID();
 
+//main part of form
 var nameBook 	= document.getElementById("bname");
 var nameAuthor 	= document.getElementById("aname");
 var isbnNumber 	= document.getElementById("isbn");
@@ -14,16 +15,9 @@ var readBook 	= document.getElementById("read");
 var readBookNot = document.getElementById("not_read");
 var dateAdded 	= document.getElementById("dateAdded");
 var datePublish = document.getElementById("datePublished");
-var purchased 	= document.getElementById("purchased");
-var borrowed 	= document.getElementById("borrowed");
-var paperback 	= document.getElementById("paperback");
-var hardcover 	= document.getElementById("hardcover");
-var mobile 		= document.getElementById("mobile");
-var fiction 	= document.getElementById("fiction");
-var nonFiction 	= document.getElementById("nonfiction");
-var comments 	= document.getElementById("comments");
 var rating		= document.getElementById("rating"); 
 var genre		= document.getElementById("genre"); 
+//list of genres
 var poetry 		= document.getElementById("poetry");
 var paranormal 	= document.getElementById("paranormal");
 var romance 	= document.getElementById("romance");
@@ -52,10 +46,21 @@ var computers 	= document.getElementById("computers");
 var technical 	= document.getElementById("technical");
 var craftHobby 	= document.getElementById("craft_hobby");
 var exercise 	= document.getElementById("exercise");
+//optional part of form
+var purchased 	= document.getElementById("purchased");
+var borrowed 	= document.getElementById("borrowed");
+var paperback 	= document.getElementById("paperback");
+var hardcover 	= document.getElementById("hardcover");
+var mobile 		= document.getElementById("mobile");
+var fiction 	= document.getElementById("fiction");
+var nonFiction 	= document.getElementById("nonfiction");
+var comments 	= document.getElementById("comments");
+//three buttons
 var submitData 	= document.getElementById("submitButton");
 var showData 	= document.getElementById("showSatchel");
 var clearData 	= document.getElementById("emptySatchel");
-var keyValue; //for the form...random number generator
+//for the form...random number generator
+var keyValue; 
 
 //JavaScript Methods: .getElementsByTagName(); 
 
@@ -97,6 +102,26 @@ var submitInfo = function(){
 	myData.comments 	= document.getElementById("comments").value;
 	myData.rating		= document.getElementById("rating").value; 
 	myData.genre		= document.getElementById("genre").value; 
+	//radio buttons: read/not read; purchased/borrowed; 3 cover types; fiction/nonfiction
+	function loopForm(form){
+		var cbResults = 'Checkboxes: ';
+		var radioResults = 'Radio buttons: ';
+		for (var i=0; i<form.elements.length; i++){
+			if (form.elements[i].type == 'checkbox'){
+				if (form.elements[i].checked == true){
+					cbResults += form.elements[i].value + ' ';
+				}
+			}
+			if (form.elements[i].type == 'radio'){
+				if (form.elements[i].checked == true){
+					radioResults += form.elements[i].value + ' ';
+				}
+			}
+		}
+		//document.getElementById("cbResults").innerHTML = cbResults; 
+		//document.getElementById("radioResults").innerHTML = radioResults; 
+	}
+	myData.results		= [cbResults, radioResults]; 
 	keyValue = Math.floor(Math.random()*100001);
 	localStorage.setItem(keyValue, JSON.stringify(myData)); 
 	alert("Your book is in your Satchel");
