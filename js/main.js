@@ -149,28 +149,6 @@ var submitInfo = function(){
 	myData.rating		= document.getElementById("rating").value; 
 	myData.genre		= document.getElementById("genre").value; 
 	//radio buttons: read/not read; purchased/borrowed; 3 cover types; fiction/nonfiction
-	//http://www.randomsnippets.com/2008/05/15/how-to-loop-through-checkboxes-or-radio-button-groups-via-javascript/
-	/* this function doesn't work yet???
-	function loopForm(forms){
-		var cbResults = 'Checkboxes: ';
-		var radioResults = 'Radio buttons: ';
-		for (var i=0; i<form.elements.length; i++){
-			if (form.elements[i].type == 'checkbox'){
-				if (form.elements[i].checked == true){
-					cbResults += form.elements[i].value + ' ';
-				}
-			}
-			if (form.elements[i].type == 'radio'){
-				if (form.elements[i].checked == true){
-					radioResults += form.elements[i].value + ' ';
-				}
-			}
-		}
-		document.getElementById("cbResults").innerHTML = cbResults; 
-		document.getElementById("radioResults").innerHTML = radioResults; 
-	}
-	myData.results		= [cbResults, radioResults]; */
-	//need to call the functions for the radio buttons. 
 	readBookChoices();
 	permanentBookChoices(); 
 	coverBookChoices(); 
@@ -178,12 +156,23 @@ var submitInfo = function(){
 	keyValue = Math.floor(Math.random()*100001);
 	localStorage.setItem(keyValue, JSON.stringify(myData)); 
 	alert("Your book is in your Satchel");
-}
+};
 
 //showInfo function goes with the showData button (Show Satchel)
 var showInfo = function (){
-
-}
+	var myNewDiv = document.createElement("div");
+	var myNewList = document.createElement("ul"); 
+	for(var p=0, q=localStorage.legnth; p<q; p++){
+		var lsKey = localStorage.key(p); 
+		var lsValue = JSON.parse(localStorage.getItem(lsKey));
+		var mySatchelBook = document.getElementById("myForm"); 
+		for(n in lsValue){
+			var newUlTag = document.createElement("ul"); 
+			newUlTag.innerHTML = lsValue[n];
+			mySatchelBook.appendChild(newUlTag);
+		}
+	}
+};
 
 //clearInfo function goes with the clearData button (Empty Satchel)
 var clearInfo = function (){
@@ -194,7 +183,7 @@ var clearInfo = function (){
 	} else {
 		alert("Your books are safe in the Satchel"); 
 	}
-}
+};
 
 
 //Methods
@@ -207,7 +196,7 @@ var clearInfo = function (){
 		comments.addEventListener("focus", changeBorder);
 		comments.addEventListener("blur", changeBorder);*/
 submitData.addEventListener("click", submitInfo);
-//showData.addEventListener("click", showInfo);
+showData.addEventListener("click", showInfo);
 clearData.addEventListener("click", clearInfo);
 
 
