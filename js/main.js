@@ -160,9 +160,25 @@ var submitInfo = function(){
 
 //showInfo function goes with the showData button (Show Satchel)
 var showInfo = function (){
-	var myNewDiv = document.createElement("div");
-	var myNewList = document.createElement("ul"); 
-	for(var p=0, q=localStorage.legnth; p<q; p++){
+	/*var hideForm 		= document.getElementById("myForm");
+	hideForm.style.diplay = "none";*/
+	var addContentDiv	= document.getElementById("mainContent"); //grandparent
+	var myNewDiv 		= document.createElement("div"); //parent
+	var myNewList 		= document.createElement("ul");  //child
+	var myNewLItag		= document.createElement("li"); //another child
+	goHome.type = "button";
+	goHome.name = "goHome"; 
+	goHome.id = "goHome";
+	goHome.value = "Back to Form";
+	addContentDiv.appendChild(myNewDiv);
+	myNewDiv.appendChild(myNewList); 
+	myNewList.appendChild(myNewLItag);
+	document.getElementById["submitData"].style.display = "none"; 
+	document.getElementById["showData"].style.display = "none"; 
+	document.getElementById["goHome"].style.display = ""; 
+	
+	
+	/*for(var p=0, q=localStorage.legnth; p<q; p++){
 		var lsKey = localStorage.key(p); 
 		var lsValue = JSON.parse(localStorage.getItem(lsKey));
 		var mySatchelBook = document.getElementById("myForm"); 
@@ -171,7 +187,7 @@ var showInfo = function (){
 			newUlTag.innerHTML = lsValue[n];
 			mySatchelBook.appendChild(newUlTag);
 		}
-	}
+	}*/	
 };
 
 //clearInfo function goes with the clearData button (Empty Satchel)
@@ -183,6 +199,15 @@ var clearInfo = function (){
 	} else {
 		alert("Your books are safe in the Satchel"); 
 	}
+};
+
+//returnHome function returns the two buttons and shows the Form and hides the Satchel
+var returnHome = function (){
+	document.getElementById["submitData"].style.display = ""; 
+	document.getElementById["showData"].style.display = ""; 
+	document.getElementById["goHome"].style.display = "none"; 
+	//hides the satchel <myNewDiv
+	//shows the form again <myForm>
 };
 
 
@@ -198,6 +223,7 @@ var clearInfo = function (){
 submitData.addEventListener("click", submitInfo);
 showData.addEventListener("click", showInfo);
 clearData.addEventListener("click", clearInfo);
+goHome.addEventListener("click", returnHome);
 
 
 

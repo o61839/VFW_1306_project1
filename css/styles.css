@@ -107,6 +107,22 @@ ul li {
 	/*-moz-border-radius: 6px*/
 }
 
+#goHome {
+ 	background-color: #36991D;
+ 	font-size: 0.9pc;
+ 	color: #FEFFBF; 
+ 	width: 120px;
+ 	height: 40px;
+ 	margin-top: 5px;
+ 	margin-left: 20px; 
+ 	padding: 0;
+ 	border: 1px solid #400099;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	display: none;
+	/*-moz-border-radius: 6px*/
+}
+
 footer {
 	margin-top: 5px; 
 	font-size: 12px;
