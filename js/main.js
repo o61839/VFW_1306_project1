@@ -68,7 +68,8 @@ window.addEventListener("DOMContentLoaded", function (){
 	var coverSelection = []; 
 	var typeSelection = []; 
 	//container to hold the form's information (i.e. the Book Info)
-	var myData = {}
+	var myData = {};
+	var bookInfoList;
 
 	//JavaScript Methods: .getElementsByTagName(); 
 
@@ -143,12 +144,31 @@ window.addEventListener("DOMContentLoaded", function (){
 		alert("Your book is in your Satchel");
 	};
 
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				myBookQuestions.style.display = "none"; 
+				clearData.style.display = "inline";
+				submitData.style.visibility = "hidden";
+				showData.style.display = "none"; 
+				showGo.style.display = "inline";
+				break;
+			case "off":
+				myBookQuestions.style.display = "block";
+				clearData.style.display = "inline";
+				submitData.style.visibility = "visible"; 
+				showData.style.display = "inline"; 
+				showGo.style.display = "none"; 
+				bookInfoList.style.display = "none";
+				break;
+			default:
+				return false; 
+		}
+	}
+
 	//showInfo function goes with the showData button (Show Satchel)
 	var showInfo = function (){
-		submitData.style.visibility = "hidden"; 
-		showData.style.display = "none"; 
-		showGo.style.display = "inline"; 
-		//formAddBook.style.display = "none";
+		toggleControls("on");
 		//create new tags for data
 		//grandparent = mainContent (body of html)
 		//resultsMyData = array for data content
@@ -173,6 +193,7 @@ window.addEventListener("DOMContentLoaded", function (){
 				makeSubList.appendChild(makeSubli);
 				var bookInfoList = object[n][0]+" "+obj[n][1]; 
 				makeSubli.innerHTML = bookInfoList;
+				bookInfoList.style.display = "block";
 			}
 		}	
 	};
@@ -189,17 +210,18 @@ window.addEventListener("DOMContentLoaded", function (){
 			} else {
 			alert("Your books are safe in the Satchel"); 
 			}
+			window.location.reload();
+			return false; 
 		}
 	};
 
+
 	//returnHome function returns the two buttons and shows the Form and hides the Satchel
 	var returnHome = function (){
-		submitData.style.visibility = "visible"; 
-		showData.style.display = "inline"; 
-		showGo.style.display = "none"; 
-		//formAddBook.style.display = "inline";
+		toggleControls("off");
 		//hides the satchel <myNewDiv>
 		//shows the form again <myForm>
+		
 	};
 
 
