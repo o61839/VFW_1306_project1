@@ -61,6 +61,10 @@ var showData 	= document.getElementById("showSatchel");
 var clearData 	= document.getElementById("emptySatchel");
 //for the form...random number generator
 var keyValue; 
+var readingSelection = []; 
+var permanentSelection = []; 
+var coverSelection = []; 
+var typeSelection = []; 
 
 //JavaScript Methods: .getElementsByTagName(); 
 
@@ -91,7 +95,48 @@ var changeBorder = function(){
 	}
 }
 */
+var readBookChoices = function(){
+	//read not_read
+	var selected 	= document.getElementById("myForm").choice;
+	for(var s=0, t=selected.length; s<t; s++){
+		if(selected[s].checked){
+			readingSelection.push = selected[s].value; 
+			return readingSelection;
+		}
+	}
+};
+var permanentBookChoices = function(){
+	//read not_read
+	var selectedP 	= document.getElementById("myForm").permanent;
+	for(var s=0, t=selectedP.length; s<t; s++){
+		if(selectedP[s].checked){
+			permanentSelection.push = selectedP[s].value; 
+			return permanentSelection;
+		}
+	}
+};
 
+var coverBookChoices = function(){
+	//read not_read
+	var selectedC 	= document.getElementById("myForm").cover;
+	for(var s=0, t=selectedC.length; s<t; s++){
+		if(selectedC[s].checked){
+			coverSelection.push = selectedC[s].value; 
+			return coverSelection;
+		}
+	}
+};
+
+var typeBookChoices = function(){
+	//read not_read
+	var selectedT 	= document.getElementById("myForm").type;
+	for(var s=0, t=selectedT.length; s<t; s++){
+		if(selectedT[s].checked){
+			typeSelection.push = selectedT[s].value; 
+			return typeSelection;
+		}
+	}
+};
 //submitInfo function goes with the submitData button (Put in Satchel)
 var submitInfo = function(){
 	var myData = {}
@@ -106,7 +151,7 @@ var submitInfo = function(){
 	//radio buttons: read/not read; purchased/borrowed; 3 cover types; fiction/nonfiction
 	//http://www.randomsnippets.com/2008/05/15/how-to-loop-through-checkboxes-or-radio-button-groups-via-javascript/
 	/* this function doesn't work yet???
-	function loopForm(form){
+	function loopForm(forms){
 		var cbResults = 'Checkboxes: ';
 		var radioResults = 'Radio buttons: ';
 		for (var i=0; i<form.elements.length; i++){
@@ -125,6 +170,11 @@ var submitInfo = function(){
 		document.getElementById("radioResults").innerHTML = radioResults; 
 	}
 	myData.results		= [cbResults, radioResults]; */
+	//need to call the functions for the radio buttons. 
+	readBookChoices();
+	permanentBookChoices(); 
+	coverBookChoices(); 
+	typeBookChoices();
 	keyValue = Math.floor(Math.random()*100001);
 	localStorage.setItem(keyValue, JSON.stringify(myData)); 
 	alert("Your book is in your Satchel");
