@@ -73,6 +73,7 @@ ul li {
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	/*-moz-border-radius: 6px*/
+	display: inline;
 }
 
 
@@ -89,6 +90,7 @@ ul li {
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	/*-moz-border-radius: 6px*/
+	display: inline;
 }
 
 
@@ -105,6 +107,7 @@ ul li {
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	/*-moz-border-radius: 6px*/
+	display: inline; 
 }
 
 #goHome {
@@ -119,8 +122,8 @@ ul li {
  	border: 1px solid #400099;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
-	display: none;
 	/*-moz-border-radius: 6px*/
+	display: none;
 }
 
 footer {

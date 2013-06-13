@@ -59,6 +59,7 @@ var comments 	= document.getElementById("comments");
 var submitData 	= document.getElementById("submitButton");
 var showData 	= document.getElementById("showSatchel");
 var clearData 	= document.getElementById("emptySatchel");
+var showGo		= document.getElementById("goHome");
 //for the form...random number generator
 var keyValue; 
 var readingSelection = []; 
@@ -75,26 +76,7 @@ var formAddBook = document.getElementsByTagName("form");
 var inputBoxes = [nameBook, nameAuthor,isbnNumber]; 
 
 //Functions
-//this is to set focus or deselect focus...but the focus options don't work. 
-/*var changeBorder = function(){
-	if (i < inputBoxes.length) {
-		i=o
-		i++
-		inputBoxes[i].setAttribute("class","hasFocus");
-	} else {
-		i=o
-		i++
-		inputBoxes[i].removeAttribute("class","hasFocus");
-	}
-}
 
-var changeBorder = function(){
-	for (var i = 0; j = inputBoxes.length; i<j; i++) {
-		if 
-			inputBoxes[i].setAttribute("class","hasFocus");
-	}
-}
-*/
 var readBookChoices = function(){
 	//read not_read
 	var selected 	= document.getElementById("myForm").choice;
@@ -106,7 +88,7 @@ var readBookChoices = function(){
 	}
 };
 var permanentBookChoices = function(){
-	//read not_read
+	//permanent or borrowing
 	var selectedP 	= document.getElementById("myForm").permanent;
 	for(var s=0, t=selectedP.length; s<t; s++){
 		if(selectedP[s].checked){
@@ -117,7 +99,7 @@ var permanentBookChoices = function(){
 };
 
 var coverBookChoices = function(){
-	//read not_read
+	//hardcover, paperback, mobile
 	var selectedC 	= document.getElementById("myForm").cover;
 	for(var s=0, t=selectedC.length; s<t; s++){
 		if(selectedC[s].checked){
@@ -128,7 +110,7 @@ var coverBookChoices = function(){
 };
 
 var typeBookChoices = function(){
-	//read not_read
+	//fiction, non-fiction
 	var selectedT 	= document.getElementById("myForm").type;
 	for(var s=0, t=selectedT.length; s<t; s++){
 		if(selectedT[s].checked){
@@ -160,25 +142,20 @@ var submitInfo = function(){
 
 //showInfo function goes with the showData button (Show Satchel)
 var showInfo = function (){
-	var hideSubmit 		= document.getElementById("submitData");
-	hideSubmit.display = "none"; 
-	var hideShow		= document.getElementById("showData");
-	hideShow.display = "none"; 
-	var showGo			= document.getElementById("goHome");
-	showGo.display = ""; 
-	var hideForm 		= document.getElementById("myForm");
-	hideForm.style.diplay = "none";
+	submitData.style.display = "none"; 
+	showData.style.display = "none"; 
+	showGo.style.display = "inline"; 
+	//formAddBook.style.display = "none";
 	//create new tags for data
-	var addContentDiv	= document.getElementById("mainContent"); //grandparent
+	//grandparent = formAddBook
 	var myNewDiv 		= document.createElement("div"); //parent
 	var myNewList 		= document.createElement("ul");  //child
 	for(i=0; i<3; i++){
 		var myNewLItag	= document.createElement("li"); //another child
 		myNewList.appendChild(myNewLItag);
 	}
-	addContentDiv.appendChild(myNewDiv);
+	mainContent.appendChild(myNewDiv);
 	myNewDiv.appendChild(myNewList); 
-	alert("This button is working");
 	
 	//shows data in tags
 	/*for(var p=0, q=localStorage.legnth; p<q; p++){
@@ -209,28 +186,22 @@ var clearInfo = function (){
 };
 
 //returnHome function returns the two buttons and shows the Form and hides the Satchel
-/*var returnHome = function (){
-	document.getElementById("submitData").style.visibility = "visible"; 
-	document.getElementById("showData").style.visibility = "visible"; 
-	document.getElementById("goHome").style.display = "none"; 
+var returnHome = function (){
+	submitData.style.display = "inline"; 
+	showData.style.display = "inline"; 
+	showGo.style.display = "none"; 
+	//formAddBook.style.display = "inline";
 	//hides the satchel <myNewDiv>
 	//shows the form again <myForm>
-};*/
+};
 
 
 //Methods
-		/*nameBook.addEventListener("focus", changeBorder);
-		nameBook.addEventListener("blur", changeBorder);
-		nameAuthor.addEventListener("focus", changeBorder);
-		nameAuthor.addEventListener("blur", changeBorder);
-		isbnNumber.addEventListener("focus", changeBorder);
-		isbnNumber.addEventListener("blur", changeBorder);
-		comments.addEventListener("focus", changeBorder);
-		comments.addEventListener("blur", changeBorder);*/
+
 submitData.addEventListener("click", submitInfo);
 showData.addEventListener("click", showInfo);
 clearData.addEventListener("click", clearInfo);
-//goHome.addEventListener("click", returnHome);
+goHome.addEventListener("click", returnHome);
 
 
 
