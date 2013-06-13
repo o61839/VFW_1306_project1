@@ -160,24 +160,20 @@ var submitInfo = function(){
 
 //showInfo function goes with the showData button (Show Satchel)
 var showInfo = function (){
+	document.getElementById["submitData"].style.display = "none"; 
+	document.getElementById["showData"].style.display = "none"; 
+	document.getElementById["goHome"].style.display = ""; 
 	/*var hideForm 		= document.getElementById("myForm");
 	hideForm.style.diplay = "none";*/
+	//create new tags for data
 	var addContentDiv	= document.getElementById("mainContent"); //grandparent
 	var myNewDiv 		= document.createElement("div"); //parent
 	var myNewList 		= document.createElement("ul");  //child
 	var myNewLItag		= document.createElement("li"); //another child
-	goHome.type = "button";
-	goHome.name = "goHome"; 
-	goHome.id = "goHome";
-	goHome.value = "Back to Form";
 	addContentDiv.appendChild(myNewDiv);
 	myNewDiv.appendChild(myNewList); 
 	myNewList.appendChild(myNewLItag);
-	document.getElementById["submitData"].style.display = "none"; 
-	document.getElementById["showData"].style.display = "none"; 
-	document.getElementById["goHome"].style.display = ""; 
-	
-	
+	//shows data in tags
 	/*for(var p=0, q=localStorage.legnth; p<q; p++){
 		var lsKey = localStorage.key(p); 
 		var lsValue = JSON.parse(localStorage.getItem(lsKey));
