@@ -160,19 +160,26 @@ var submitInfo = function(){
 
 //showInfo function goes with the showData button (Show Satchel)
 var showInfo = function (){
-	document.getElementById["submitData"].style.display = "none"; 
-	document.getElementById["showData"].style.display = "none"; 
-	document.getElementById["goHome"].style.display = ""; 
-	/*var hideForm 		= document.getElementById("myForm");
-	hideForm.style.diplay = "none";*/
+	var hideSubmit 		= document.getElementById("submitData");
+	hideSubmit.display = "none"; 
+	var hideShow		= document.getElementById("showData");
+	hideShow.display = "none"; 
+	var showGo			= document.getElementById("goHome");
+	showGo.display = ""; 
+	var hideForm 		= document.getElementById("myForm");
+	hideForm.style.diplay = "none";
 	//create new tags for data
 	var addContentDiv	= document.getElementById("mainContent"); //grandparent
 	var myNewDiv 		= document.createElement("div"); //parent
 	var myNewList 		= document.createElement("ul");  //child
-	var myNewLItag		= document.createElement("li"); //another child
+	for(i=0; i<3; i++){
+		var myNewLItag	= document.createElement("li"); //another child
+		myNewList.appendChild(myNewLItag);
+	}
 	addContentDiv.appendChild(myNewDiv);
 	myNewDiv.appendChild(myNewList); 
-	myNewList.appendChild(myNewLItag);
+	alert("This button is working");
+	
 	//shows data in tags
 	/*for(var p=0, q=localStorage.legnth; p<q; p++){
 		var lsKey = localStorage.key(p); 
@@ -188,23 +195,27 @@ var showInfo = function (){
 
 //clearInfo function goes with the clearData button (Empty Satchel)
 var clearInfo = function (){
-	var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
-	if(questionThem){
+	if(localStorage.length ===0){
+		alert("There are no books in your Satchel to remove."); 
+	} else {
+		var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
+		if(questionThem){
 		localStorage.clear()
 		alert("Your Satchel is now empty!");
-	} else {
+		} else {
 		alert("Your books are safe in the Satchel"); 
+		}
 	}
 };
 
 //returnHome function returns the two buttons and shows the Form and hides the Satchel
-var returnHome = function (){
-	document.getElementById["submitData"].style.display = ""; 
-	document.getElementById["showData"].style.display = ""; 
-	document.getElementById["goHome"].style.display = "none"; 
-	//hides the satchel <myNewDiv
+/*var returnHome = function (){
+	document.getElementById("submitData").style.visibility = "visible"; 
+	document.getElementById("showData").style.visibility = "visible"; 
+	document.getElementById("goHome").style.display = "none"; 
+	//hides the satchel <myNewDiv>
 	//shows the form again <myForm>
-};
+};*/
 
 
 //Methods
@@ -219,7 +230,7 @@ var returnHome = function (){
 submitData.addEventListener("click", submitInfo);
 showData.addEventListener("click", showInfo);
 clearData.addEventListener("click", clearInfo);
-goHome.addEventListener("click", returnHome);
+//goHome.addEventListener("click", returnHome);
 
 
 
