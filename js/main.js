@@ -169,6 +169,9 @@ window.addEventListener("DOMContentLoaded", function (){
 	//showInfo function goes with the showData button (Show Satchel)
 	var showInfo = function (){
 		toggleControls("on");
+		if(localStorage.length === 0){
+			alert("Your Satchel is empty.");
+		}
 		//create new tags for data
 		//grandparent = mainContent (body of html)
 		//resultsMyData = array for data content
