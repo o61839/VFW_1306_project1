@@ -73,7 +73,7 @@ window.addEventListener("DOMContentLoaded", function (){
 	//container to hold the form's information (i.e. the Book Info)
 	var myData = {};
 	var bookInfoList;
-	var myNewDiv;
+	var myNewDiv 	= document.getElementById("bookInfoDisplay"); //parent
 
 	//JavaScript Methods: .getElementsByTagName(); 
 
@@ -182,7 +182,6 @@ window.addEventListener("DOMContentLoaded", function (){
 		//create new tags for data
 		//grandparent = mainContent (body of html)
 		//resultsMyData = array for data content
-		var myNewDiv 		= document.getElementById("bookInfoDisplay"); //parent
 		var myNewList 		= document.createElement("ul");  //child
 		myNewList.setAttribute("id", "bookInfo");
 		myNewDiv.appendChild(myNewList);
