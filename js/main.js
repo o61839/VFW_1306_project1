@@ -2,6 +2,9 @@
 	VFW 1306
 	Project 1
 	The Satchel
+	June 06, 2013
+	
+	Project 2
 	June 13, 2013
 */
 
@@ -83,7 +86,7 @@ window.addEventListener("DOMContentLoaded", function (){
 
 	var readBookChoices = function(){
 		//read not_read
-		var selected 	= document.getElementById("myForm").choice;
+		var selected 	= document.getElementById("myBookQuestions").choice;
 		for(var s=0, t=selected.length; s<t; s++){
 			if(selected[s].checked){
 				readingSelection.push = selected[s].value; 
@@ -93,7 +96,7 @@ window.addEventListener("DOMContentLoaded", function (){
 	};
 	var permanentBookChoices = function(){
 		//permanent or borrowing
-		var selectedP 	= document.getElementById("myForm").permanent;
+		var selectedP 	= document.getElementById("myBookQuestions").permanent;
 		for(var s=0, t=selectedP.length; s<t; s++){
 			if(selectedP[s].checked){
 				permanentSelection.push = selectedP[s].value; 
@@ -104,7 +107,7 @@ window.addEventListener("DOMContentLoaded", function (){
 
 	var coverBookChoices = function(){
 		//hardcover, paperback, mobile
-		var selectedC 	= document.getElementById("myForm").cover;
+		var selectedC 	= document.getElementById("myBookQuestions").cover;
 		for(var s=0, t=selectedC.length; s<t; s++){
 			if(selectedC[s].checked){
 				coverSelection.push = selectedC[s].value; 
@@ -115,7 +118,7 @@ window.addEventListener("DOMContentLoaded", function (){
 
 	var typeBookChoices = function(){
 		//fiction, non-fiction
-		var selectedT 	= document.getElementById("myForm").type;
+		var selectedT 	= document.getElementById("myBookQuestions").type;
 		for(var s=0, t=selectedT.length; s<t; s++){
 			if(selectedT[s].checked){
 				typeSelection.push = selectedT[s].value; 
@@ -170,7 +173,8 @@ window.addEventListener("DOMContentLoaded", function (){
 	var showInfo = function (){
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("Your Satchel is empty.");
+				bookInfoList = 0
+				alert("Your Satchel is empty.");
 		}
 		//create new tags for data
 		//grandparent = mainContent (body of html)
