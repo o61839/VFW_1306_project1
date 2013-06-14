@@ -84,6 +84,10 @@ window.addEventListener("DOMContentLoaded", function (){
 	var resultsMyData = myData; 
 
 	//Functions
+	
+	function resetForm(){
+			document.getElementById("myBookQuestions").reset();
+   	};
 
 	var readBookChoices = function(){
 		//read not_read
@@ -146,6 +150,7 @@ window.addEventListener("DOMContentLoaded", function (){
 		keyValue = Math.floor(Math.random()*100001);
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
+		resetForm();
 	};
 
 	function toggleControls(n){
