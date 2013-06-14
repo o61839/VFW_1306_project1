@@ -185,7 +185,7 @@ window.addEventListener("DOMContentLoaded", function (){
 		var myNewList 		= document.createElement("ul");  //child
 		myNewList.setAttribute("id", "bookInfo");
 		myNewDiv.appendChild(myNewList);
-		for(i=0, j=resultsMyData.length; i<j; i++){
+		for(i=0, j=localStorage.length; i<j; i++){
 			var myNewLItag	= document.createElement("li"); //another child
 			//myNewLItag.innerHTML = resultsMyData(i);
 			myNewList.appendChild(myNewLItag); 
