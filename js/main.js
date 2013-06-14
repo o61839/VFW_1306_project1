@@ -73,6 +73,7 @@ window.addEventListener("DOMContentLoaded", function (){
 	//container to hold the form's information (i.e. the Book Info)
 	var myData = {};
 	var bookInfoList;
+	var myNewDiv;
 
 	//JavaScript Methods: .getElementsByTagName(); 
 
@@ -155,7 +156,7 @@ window.addEventListener("DOMContentLoaded", function (){
 				submitData.style.visibility = "hidden";
 				showData.style.display = "none"; 
 				showGo.style.display = "inline";
-				bookInfoList.style.display = "block";
+				myNewDiv.style.display = "block";
 				break;
 			case "off":
 				myBookQuestions.style.display = "block";
@@ -163,7 +164,7 @@ window.addEventListener("DOMContentLoaded", function (){
 				submitData.style.visibility = "visible"; 
 				showData.style.display = "inline"; 
 				showGo.style.display = "none"; 
-				bookInfoList.style.display = "none";
+				myNewDiv.style.display = "none";
 				break;
 			default:
 				return false; 
@@ -183,7 +184,6 @@ window.addEventListener("DOMContentLoaded", function (){
 		var myNewDiv 		= document.getElementById("bookInfoDisplay"); //parent
 		var myNewList 		= document.createElement("ul");  //child
 		myNewList.setAttribute("id", "bookInfo");
-		document.body.appendChild(myNewDiv); 
 		myNewDiv.appendChild(myNewList);
 		for(i=0, j=resultsMyData.length; i<j; i++){
 			var myNewLItag	= document.createElement("li"); //another child
@@ -200,7 +200,6 @@ window.addEventListener("DOMContentLoaded", function (){
 				makeSubList.appendChild(makeSubli);
 				var bookInfoList = object[n][0]+" "+obj[n][1]; 
 				makeSubli.innerHTML = bookInfoList;
-				bookInfoList.style.display = "block";
 			}
 		}	
 	};
