@@ -6,7 +6,7 @@
 
 //Wait until DOM is ready. 
 window.addEventListener("DOMContentLoaded", function (){
-
+//will update this as I saw that video late today after I did all this code. 
 	//main part of form
 	var nameBook 	= document.getElementById("bname");
 	var nameAuthor 	= document.getElementById("aname");
