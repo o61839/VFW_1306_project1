@@ -155,6 +155,7 @@ window.addEventListener("DOMContentLoaded", function (){
 				submitData.style.visibility = "hidden";
 				showData.style.display = "none"; 
 				showGo.style.display = "inline";
+				bookInfoList.style.display = "block";
 				break;
 			case "off":
 				myBookQuestions.style.display = "block";
@@ -170,7 +171,6 @@ window.addEventListener("DOMContentLoaded", function (){
 	}
 
 	//showInfo function goes with the showData button (Show Satchel)
-	//NOT WORKING?????????????????
 	var showInfo = function (){
 		toggleControls("on");
 		if(localStorage.length === 0){
@@ -180,8 +180,7 @@ window.addEventListener("DOMContentLoaded", function (){
 		//create new tags for data
 		//grandparent = mainContent (body of html)
 		//resultsMyData = array for data content
-		var myNewDiv 		= document.createElement("div"); //parent
-		myNewDiv.setAttribute("id", "book"); 
+		var myNewDiv 		= document.getElementById("bookInfoDisplay"); //parent
 		var myNewList 		= document.createElement("ul");  //child
 		myNewList.setAttribute("id", "bookInfo");
 		document.body.appendChild(myNewDiv); 
