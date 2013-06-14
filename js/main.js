@@ -1,9 +1,5 @@
 /* 	Jenney Grover
 	VFW 1306
-	Project 1
-	The Satchel
-	June 06, 2013
-	
 	Project 2
 	June 13, 2013
 */
