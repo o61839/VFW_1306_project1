@@ -187,7 +187,7 @@ window.addEventListener("DOMContentLoaded", function (){
 		myNewDiv.appendChild(myNewList);
 		for(i=0, j=resultsMyData.length; i<j; i++){
 			var myNewLItag	= document.createElement("li"); //another child
-			myNewLItag.innerHTML = resultsMyData(i);
+			//myNewLItag.innerHTML = resultsMyData(i);
 			myNewList.appendChild(myNewLItag); 
 			var key = localStorage.key(i); 
 			var value = localStorage.getItem(key); 
@@ -198,7 +198,7 @@ window.addEventListener("DOMContentLoaded", function (){
 			for(var n in object){
 				var makeSubli = document.createElement("li");
 				makeSubList.appendChild(makeSubli);
-				var bookInfoList = object[n][0]+" "+obj[n][1]; 
+				var bookInfoList = object[n][0]+" "+ object[n][1]; 
 				makeSubli.innerHTML = bookInfoList;
 			}
 		}	
@@ -206,7 +206,7 @@ window.addEventListener("DOMContentLoaded", function (){
 
 	//clearInfo function goes with the clearData button (Empty Satchel)
 	var clearInfo = function (){
-		if(localStorage.length ===0){
+		if(localStorage.length === 0){
 			alert("There are no books in your Satchel to remove."); 
 		} else {
 			var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
