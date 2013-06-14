@@ -172,6 +172,7 @@ window.addEventListener("DOMContentLoaded", function (){
 	}
 
 	//showInfo function goes with the showData button (Show Satchel)
+	//this code is still not working????
 	var showInfo = function (){
 		toggleControls("on");
 		if(localStorage.length === 0){
