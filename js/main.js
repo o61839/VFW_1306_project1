@@ -225,10 +225,7 @@ window.addEventListener("DOMContentLoaded", function (){
 
 	//returnHome function returns the two buttons and shows the Form and hides the Satchel
 	var returnHome = function (){
-		toggleControls("off");
-		//hides the satchel <myNewDiv>
-		//shows the form again <myForm>
-		
+		toggleControls("off");		
 	};
 
 
