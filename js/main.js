@@ -108,6 +108,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		resetForm(); 
 	};
 	
+	//data in radio buttons not saving correctly. And therefore not displaying. 
+	
 	//Write data from Local Storage to Browser
 	function showInfo(){
 		if(localStorage.length === 0){
