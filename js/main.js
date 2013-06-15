@@ -97,7 +97,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			datePublish : ["Published", $("datePublished").value],
 			comments 	: ["Comments", $("comments").value],
 			rating		: ["Rate", $("rating").value],
-			genre		: ["Genre", $("selectGenre")],
+			genre		: ["Genre", $("selectGenre").value],
 			//used the returns from the functions and set those as the variables for these arrays. 
 			readBook	: ["Read", readingSelection],
 			purchased	: ["Purchased", permanentSelection],
@@ -111,7 +111,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 	//data in radio buttons not saving correctly. And therefore not displaying. 
-	//WTF???
 	
 	//Write data from Local Storage to Browser
 	function showInfo(){
@@ -149,8 +148,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var permanentSelection; 
 	var coverSelection; 
 	var typeSelection;  
-	genreCategory (); 
-	var myData = {}; 
+	genreCategory ();  
 	
 	//Set link & Submit Click Events
 	var saveBook 		= $("submitButton"); 
