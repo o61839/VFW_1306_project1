@@ -110,8 +110,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		resetForm(); 
 	};
 	
-	//YAAAY the save is working. Now to figure out the display. 
-	
 	//Write data from Local Storage to Browser
 	function showInfo(){
 		if(localStorage.length === 0){
@@ -119,13 +117,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		var makeDiv 	= $("bookInfoDisplay"); 
 		var makeList 	= document.createElement("ul");
-		makeDiv.appendChild(makeList); 
-		document.body.appendChild(makeDiv); 
-		for(var i=0, j=myData.length; i<j; i++){
+		makeDiv.appendChild(makeList);  
+		for(var i=0, j=localStorage.length; i<j; i++){
 			var makeli 	= document.createElement("li");
 			makeList.appendChild(makeli); 
-			var key 	= myData.key(i); 
-			var value 	= myData.getItem(key);
+			var key 	= localStorage.key(i); 
+			var value 	= localStorage.getItem(key);
 			//convert string from local storage value back to an object by using JSON.parse
 			var obj 	= JSON.parse(value);   
 			var makeSubList	= document.createElement("ul"); 
