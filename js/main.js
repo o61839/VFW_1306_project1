@@ -85,23 +85,25 @@ window.addEventListener("DOMContentLoaded", function(){
 		keyValue 			= Math.floor(Math.random()*100001);
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
-		var readIT = readBookChoices();
-		var boughtIT = permanentBookChoices();
-		var hsmCover = coverBookChoices();
-		var trueFalse = typeBookChoices();
-		var myData			= {}; 
-			myData.nameBook 	= ["Name", $("bname").value];
-			myData.nameAuthor 	= ["Author", $("aname").value];
-			myData.isbnNumber 	= ["ISBN", $("isbn").value];
-			myData.dateAdded 	= ["Added", $("dateAdded").value];
-			myData.datePublish 	= ["Published", $("datePublished").value];
-			myData.comments 	= ["Comments", $("comments").value];
-			myData.rating		= ["Rate", $("rating").value]; 
-			myData.genre		= ["Genre", $("selectGenre")];
-			myData.readBook		= ["Read", readIT];
-			myData.purchased	= ["Purchased", boughtIT];
-			myData.cover		= ["Cover", hsmCover];
-			myData.fiction		= ["Type", trueFalse];
+		readBookChoices();
+		permanentBookChoices();
+		coverBookChoices();
+		typeBookChoices();
+		var myData			= { 
+			nameBook 	: ["Name", $("bname").value],
+			nameAuthor 	: ["Author", $("aname").value],
+			isbnNumber 	: ["ISBN", $("isbn").value],
+			dateAdded 	: ["Added", $("dateAdded").value],
+			datePublish : ["Published", $("datePublished").value],
+			comments 	: ["Comments", $("comments").value],
+			rating		: ["Rate", $("rating").value],
+			genre		: ["Genre", $("selectGenre")],
+			//used the returns from the functions and set those as the variables for these arrays. 
+			readBook	: ["Read", readingSelection],
+			purchased	: ["Purchased", permanentSelection],
+			cover		: ["Cover", coverSelection],
+			fiction		: ["Type", typeSelection]
+		};
 		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
@@ -119,11 +121,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeList 	= document.createElement("ul");
 		makeDiv.appendChild(makeList); 
 		document.body.appendChild(makeDiv); 
-		for(var i=0, j=localStorage.length; i<j; i++){
+		for(var i=0, j=myData.length; i<j; i++){
 			var makeli 	= document.createElement("li");
 			makeList.appendChild(makeli); 
-			var key 	= localStorage.key(i); 
-			var value 	= localStorage.getItem(key);
+			var key 	= myData.key(i); 
+			var value 	= myData.getItem(key);
 			//convert string from local storage value back to an object by using JSON.parse
 			var obj 	= JSON.parse(value);   
 			var makeSubList	= document.createElement("ul"); 
@@ -147,7 +149,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	var coverSelection; 
 	var typeSelection;  
 	genreCategory (); 
-
+	var myData = {}; 
+	
 	//Set link & Submit Click Events
 	var saveBook 		= $("submitButton"); 
 	saveBook.addEventListener("click", submitInfo);
