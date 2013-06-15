@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Create select field element and populate with the options
 	function genreCategory (){
 		var formTag 	= document.getElementsByTagName("myBookQuestions"), //formTag is an array of all the form tags. 
-			selectLi 	= $("select"), //targets list item with id of select
+			selectLi 	= $("selectGenre"), //targets list item with id of select
 			makeSelect	= document.createElement("select"); //creates HTML element select
 			makeSelect.setAttribute("id", "genres"); 
 		for (var i=0, j=booksGenres.length; i<j; i++) {//grab options in the variable array
@@ -30,44 +30,46 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//functions to read the radio buttons
-	var readBookChoices = function(){
+	//could use the - var selected = document.forms[0].choice; - as another options instead of getElementById("myBookQuestions").choice;
+	function readBookChoices(){
 		//read not_read
 		var selected 	= document.getElementById("myBookQuestions").choice;
 		for(var s=0, t=selected.length; s<t; s++){
 			if(selected[s].checked){
-				readingSelection.push = selected[s].value; 
+				readingSelection = selected[s].value; 
 				return readingSelection;
 			}
 		}
 	};
-	var permanentBookChoices = function(){
+	
+	function permanentBookChoices(){
 		//permanent or borrowing
 		var selectedP 	= document.getElementById("myBookQuestions").permanent;
 		for(var s=0, t=selectedP.length; s<t; s++){
 			if(selectedP[s].checked){
-				permanentSelection.push = selectedP[s].value; 
+				permanentSelection = selectedP[s].value; 
 				return permanentSelection;
 			}
 		}
 	};
 
-	var coverBookChoices = function(){
+	function coverBookChoices(){
 		//hardcover, paperback, mobile
 		var selectedC 	= document.getElementById("myBookQuestions").cover;
 		for(var s=0, t=selectedC.length; s<t; s++){
 			if(selectedC[s].checked){
-				coverSelection.push = selectedC[s].value; 
+				coverSelection = selectedC[s].value; 
 				return coverSelection;
 			}
 		}
 	};
 
-	var typeBookChoices = function(){
+	function typeBookChoices(){
 		//fiction, non-fiction
 		var selectedT 	= document.getElementById("myBookQuestions").type;
 		for(var s=0, t=selectedT.length; s<t; s++){
 			if(selectedT[s].checked){
-				typeSelection.push = selectedT[s].value; 
+				typeSelection = selectedT[s].value; 
 				return typeSelection;
 			}
 		}
@@ -78,6 +80,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		keyValue 			= Math.floor(Math.random()*100001);
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
+		readBookChoices();
+		permanentBookChoices();
+		coverBookChoices();
+		typeBookChoices();
 		var myData			= {}; 
 			myData.nameBook 	= ["Name", $("bname").value];
 			myData.nameAuthor 	= ["Author", $("aname").value];
@@ -86,7 +92,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			myData.datePublish 	= ["Published", $("datePublished").value];
 			myData.comments 	= ["Comments", $("comments").value];
 			myData.rating		= ["Rate", $("rating").value]; 
-			myData.genre		= ["Genre", $("genre").value];
+			myData.genre		= ["Genre", $("selectGenre").value];
 			myData.readBook		= ["Read", readBookChoices];
 			myData.purchased	= ["Purchased", permanentBookChoices];
 			myData.cover		= ["Cover", coverBookChoices];
@@ -99,6 +105,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Variable defaults
 	var booksGenres 	= ["--Choose A Genre--", "autobiography", "biography", "business_finance", "classics", "comic_graphic", "computers", "cooking", "craft_hobby", "crime", "design", "exercise", "fantasy", "gardening_farming", "health_mind_body", "history", "horror", "house_and_garden", "languages", "music", "outdoor_activities", "paranormal", "poetry", "religion", "romance", "sports", "scifi", "technical", "travel_guides", "true_crime", "witches_wizards_magic", "woodworking"];
+	var readingSelection;
+	var permanentSelection; 
+	var coverSelection; 
+	var typeSelection;  
 	genreCategory (); 
 
 	//Set link & Submit Click Events
