@@ -97,7 +97,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			datePublish : ["Published", $("datePublished").value],
 			comments 	: ["Comments", $("comments").value],
 			rating		: ["Rate", $("rating").value],
-			genre		: ["Genre", $("selectGenre").value],
+			genre		: ["Genre", $("genres").value],
 			//used the returns from the functions and set those as the variables for these arrays. 
 			readBook	: ["Read", readingSelection],
 			purchased	: ["Purchased", permanentSelection],
@@ -127,7 +127,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj 	= JSON.parse(value);   
 			var makeSubList	= document.createElement("ul"); 
 			makeli.appendChild(makeSubList); 
-			for (var n in obj){
+			for(var n in obj){
 				var makeSubli = document.createElement("li");
 				makeSubList.appendChild(makeSubli); 
 				//the [n] is the var/text group within the array of data
