@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Your book is in your Satchel");
 		resetForm(); 
 	};
-	
+	//stil not workings
 	//Write data from Local Storage to Browser
 	function showInfo(){
 		if(localStorage.length === 0){
