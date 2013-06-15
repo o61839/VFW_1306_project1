@@ -90,19 +90,19 @@ window.addEventListener("DOMContentLoaded", function(){
 		coverBookChoices();
 		typeBookChoices();
 		var myData			= { 
-			nameBook 	: ["Name", $("bname").value],
-			nameAuthor 	: ["Author", $("aname").value],
-			isbnNumber 	: ["ISBN", $("isbn").value],
-			dateAdded 	: ["Added", $("dateAdded").value],
-			datePublish : ["Published", $("datePublished").value],
-			comments 	: ["Comments", $("comments").value],
-			rating		: ["Rate", $("rating").value],
-			genre		: ["Genre", $("genres").value],
-			//used the returns from the functions and set those as the variables for these arrays. 
-			readBook	: ["Read", readingSelection],
-			purchased	: ["Purchased", permanentSelection],
-			cover		: ["Cover", coverSelection],
-			fiction		: ["Type", typeSelection]
+		//used the returns from the functions and set those as the variables for these arrays.
+			nameBook 	: ["Name: ", $("bname").value],
+			nameAuthor 	: ["Author: ", $("aname").value],
+			isbnNumber 	: ["ISBN: ", $("isbn").value],
+			readBook	: ["Read: ", readingSelection],
+			rating		: ["Rate: ", $("rating").value],
+			dateAdded 	: ["Added: ", $("dateAdded").value],
+			datePublish : ["Published: ", $("datePublished").value],
+			genre		: ["Genre: ", $("genres").value],
+			purchased	: ["Purchased: ", permanentSelection],
+			cover		: ["Cover: ", coverSelection],
+			fiction		: ["Type: ", typeSelection],
+			comments 	: ["Comments: ", $("comments").value]
 		};
 		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
@@ -140,7 +140,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 	//Variable defaults
-	var booksGenres 	= ["--Choose A Genre--", "autobiography", "biography", "business_finance", "classics", "comic_graphic", "computers", "cooking", "craft_hobby", "crime", "design", "exercise", "fantasy", "gardening_farming", "health_mind_body", "history", "horror", "house_and_garden", "languages", "music", "outdoor_activities", "paranormal", "poetry", "religion", "romance", "sports", "scifi", "technical", "travel_guides", "true_crime", "witches_wizards_magic", "woodworking"];
+	var booksGenres 	= ["--Choose A Genre--", "autobiography", "biography", "business finance", "classics", "comic graphic", "computers", "cooking", "craft & hobby", "crime", "design", "exercise", "fantasy", "gardening & farming", "health & mind & body", "history", "horror", "house & garden", "languages", "music", "outdoor activities", "paranormal", "poetry", "religion", "romance", "sports", "scifi", "technical", "travel guides", "true crime", "witches & wizards & magic", "woodworking"];
 	var readingSelection;
 	var permanentSelection; 
 	var coverSelection; 
