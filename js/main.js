@@ -111,6 +111,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 	//data in radio buttons not saving correctly. And therefore not displaying. 
+	//WTF???
 	
 	//Write data from Local Storage to Browser
 	function showInfo(){
