@@ -138,7 +138,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 				alert("Your Satchel is empty.");
-				toggleControls("off"); 
+				toggleControls("off"); //saves user a step to getting back to the form. 
 		} else {
 			var makeDiv 	= $("bookInfoDisplay"); 
 			var makeList 	= document.createElement("ul");
