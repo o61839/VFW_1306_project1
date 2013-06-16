@@ -79,6 +79,29 @@ window.addEventListener("DOMContentLoaded", function(){
 	function resetForm(){
 			document.getElementById("myBookQuestions").reset();
    	};
+   	
+   	function toggleControls(n){
+		switch(n){
+			case "on":
+				$("myBookQuestions").style.display = "none"; //the form
+				$("emptySatchel").style.display = "inline"; //the red button
+				$("submitButton").style.visibility = "hidden"; //purple button
+				$("showSatchel").style.display = "none"; //green button
+				$("goHome").style.display = "inline"; //green button to go home 
+				$("bookInfoDisplay").style.display = "block"; //the book information
+				break;
+			case "off":
+				$("myBookQuestions").style.display = "block"; //the form
+				$("emptySatchel").style.display = "inline"; //the red button
+				$("submitButton").style.visibility = "visible"; //purple button
+				$("showSatchel").style.display = "inline"; //green button
+				$("goHome").style.display = "none"; //green button to go home 
+				$("bookInfoDisplay").style.display = "none"; //the book information
+				break;
+			default:
+				return false; 
+		}
+	};
 	
 	//function to save the form data into local storage. 
 	function submitInfo(){
@@ -112,6 +135,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//stil not workings
 	//Write data from Local Storage to Browser
 	function showInfo(){
+		toggleControls("on");
 		if(localStorage.length === 0){
 				alert("Your Satchel is empty.");
 		}
@@ -139,6 +163,28 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	};
 	
+	//clearInfo function goes with the clearData button (Empty Satchel)
+	var clearInfo = function (){
+		if(localStorage.length === 0){
+			alert("There are no books in your Satchel to remove."); 
+		} else {
+			var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
+			if(questionThem){
+			localStorage.clear()
+			alert("Your Satchel is now empty!");
+			} else {
+			alert("Your books are safe in the Satchel"); 
+			}
+			window.location.reload();
+			return false; 
+		}
+	};
+
+	//returnHome function returns the two buttons and shows the Form and hides the Satchel
+	var returnHome = function (){
+		toggleControls("off");		
+	};
+	
 	//Variable defaults
 	var booksGenres 	= ["--Choose A Genre--", "autobiography", "biography", "business finance", "classics", "comic graphic", "computers", "cooking", "craft & hobby", "crime", "design", "exercise", "fantasy", "gardening & farming", "health & mind & body", "history", "horror", "house & garden", "languages", "music", "outdoor activities", "paranormal", "poetry", "religion", "romance", "sports", "scifi", "technical", "travel guides", "true crime", "witches & wizards & magic", "woodworking"];
 	var readingSelection;
@@ -152,10 +198,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	saveBook.addEventListener("click", submitInfo);
 	var showBook 		= $("showSatchel"); 
 	showBook.addEventListener("click", showInfo);
-/*	var goToForm 		= $("goHome");
-	goToForm.addEventListener("click", resetForm);
+	var goToForm 		= $("goHome");
+	goToForm.addEventListener("click", returnHome);
 	var emptySatchel 	= $("emptySatchel");
 	emptySatchel.addEventListener("click", clearInfo);
-*/
+
 
 }); 
