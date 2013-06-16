@@ -138,27 +138,29 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 				alert("Your Satchel is empty.");
-		}
-		var makeDiv 	= $("bookInfoDisplay"); 
-		var makeList 	= document.createElement("ul");
-		makeDiv.appendChild(makeList);  
-		for(var i=0, j=localStorage.length; i<j; i++){
-			var makeli 	= document.createElement("li");
-			makeList.appendChild(makeli); 
-			var key 	= localStorage.key(i); 
-			var value 	= localStorage.getItem(key);
-			//convert string from local storage value back to an object by using JSON.parse
-			var obj 	= JSON.parse(value);   
-			var makeSubList	= document.createElement("ul"); 
-			makeli.appendChild(makeSubList); 
-			for(var n in obj){
-				var makeSubli = document.createElement("li");
-				makeSubList.appendChild(makeSubli); 
-				//the [n] is the var/text group within the array of data
-				//[0] is the array's 1st set which is the name
-				//[1] is the array's 2nd set which is the data information for the book
-				var optSubText = obj[n][0]+" "+obj[n][1]; 
-				makeSubli.innerHTML = optSubText; 
+				toggleControls("off"); 
+		} else {
+			var makeDiv 	= $("bookInfoDisplay"); 
+			var makeList 	= document.createElement("ul");
+			makeDiv.appendChild(makeList);  
+			for(var i=0, j=localStorage.length; i<j; i++){
+				var makeli 	= document.createElement("li");
+				makeList.appendChild(makeli); 
+				var key 	= localStorage.key(i); 
+				var value 	= localStorage.getItem(key);
+				//convert string from local storage value back to an object by using JSON.parse
+				var obj 	= JSON.parse(value);   
+				var makeSubList	= document.createElement("ul"); 
+				makeli.appendChild(makeSubList); 
+				for(var n in obj){
+					var makeSubli = document.createElement("li");
+					makeSubList.appendChild(makeSubli); 
+					//the [n] is the var/text group within the array of data
+					//[0] is the array's 1st set which is the name
+					//[1] is the array's 2nd set which is the data information for the book
+					var optSubText = obj[n][0]+" "+obj[n][1]; 
+					makeSubli.innerHTML = optSubText; 
+				}
 			}
 		}
 	};
