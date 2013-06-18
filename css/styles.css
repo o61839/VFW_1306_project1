@@ -1,8 +1,9 @@
 /* 
 	Jenney Grover
 	VFW 1306
-	Project 2
+	Project 2 and 3
 	June 13, 2013
+	June 20, 2013
 */
 
 body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding: 10px; color: #47006B; background: #FEFFD9; font-size: 1.3pc;}
@@ -58,6 +59,10 @@ select {
 
 ul li {
 	list-style: none; 
+}
+
+#book {
+	display: block; 
 }
 
 #submitButton {

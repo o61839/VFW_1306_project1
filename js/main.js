@@ -1,7 +1,8 @@
 /* 	Jenney Grover
 	VFW 1306
-	Project 2 - redo
-	June 15, 2013
+	Project 2 and 3
+	June 13, 2013
+	June 20, 2013
 */
 
 //Wait until the DOM is ready. 
@@ -117,11 +118,11 @@ window.addEventListener("DOMContentLoaded", function(){
 			nameBook 	: ["Name: ", $("bname").value],
 			nameAuthor 	: ["Author: ", $("aname").value],
 			isbnNumber 	: ["ISBN: ", $("isbn").value],
-			readBook	: ["Read: ", readingSelection],
-			rating		: ["Rate: ", $("rating").value],
 			dateAdded 	: ["Added: ", $("dateAdded").value],
 			datePublish : ["Published: ", $("datePublished").value],
 			genre		: ["Genre: ", $("genres").value],
+			readBook	: ["Read: ", readingSelection],
+			rating		: ["Rate: ", $("rating").value],
 			purchased	: ["Purchased: ", permanentSelection],
 			cover		: ["Cover: ", coverSelection],
 			fiction		: ["Type: ", typeSelection],
@@ -132,6 +133,29 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Your book is in your Satchel");
 		resetForm(); 
 	};
+	
+	//function edit/delete links
+	function makeItemLinks(key, linksLi){
+		//add edit single item link
+		var editLink = document.createElement('a'); 
+		editLink.href = "#"; 
+		editLink.key = key;
+		var editText = "Edit Book"; 
+		//editLink.addEventListener("click", editItem)
+		editLink.innerHTML = editText; 
+		linksLi.appendChild(editLink); 
+		//add line break
+		var breakTag = document.createElement("br"); 
+		linksLi.appendChild(breakTag); 
+		//add delete single item link
+		var deleteLink = document.createElement('a'); 
+		deleteLink.href = "#"; 
+		deleteLink.key = key; 
+		var deleteText = "Delete Book";
+		//deleteLink.addEventListener("click", deleteItem); 
+		deleteLink.innerHTML = deleteText; 
+		linksLi.appendChild(deleteLink); 
+	} 
 	
 	//Write data from Local Storage to Browser
 	function showInfo(){
@@ -145,6 +169,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeDiv.appendChild(makeList);  
 			for(var i=0, j=localStorage.length; i<j; i++){
 				var makeli 	= document.createElement("li");
+				var linksLi = document.createElement("li"); 
 				makeList.appendChild(makeli); 
 				var key 	= localStorage.key(i); 
 				var value 	= localStorage.getItem(key);
@@ -154,13 +179,16 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeli.appendChild(makeSubList); 
 				for(var n in obj){
 					var makeSubli = document.createElement("li");
-					makeSubList.appendChild(makeSubli); 
+					makeSubList.appendChild(makeSubli);
+					makeSubList.appendChild(linksLi);
 					//the [n] is the var/text group within the array of data
 					//[0] is the array's 1st set which is the name
 					//[1] is the array's 2nd set which is the data information for the book
 					var optSubText = obj[n][0]+" "+obj[n][1]; 
 					makeSubli.innerHTML = optSubText; 
 				}
+				//function edit/delete links
+				makeItemLinks(localStorage.key(i), linksLi); //create links for each item in localStorage
 			}
 		}
 	};
