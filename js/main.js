@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//add edit single item link
 		var editLink = document.createElement('a'); 
 		editLink.href = "#"; 
-		editLink.key = key;
+		editLink.key = key; //key is from showInfo function var key
 		var editText = "Edit Book"; 
 		editLink.addEventListener("click", editItem)
 		editLink.innerHTML = editText; 
@@ -243,7 +243,23 @@ window.addEventListener("DOMContentLoaded", function(){
 			} 
 		}
 		$("comments").value = myData.comments[1];
+		
+		//Remove the initial listener from the input "submitButton". 
+		saveBook.removeEventListener("click", submitInfo)
+		//change "submitButton" value to Edit book. 
+		$("submitButton").value = "Edit Book"; 
+		var editSubmit = $("submitButton");
+		//save the key value established in this function is a product of the editSubmit function
+		//so we can use that value when we save the data we edited. 
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key; 
 	};
+	
+	//validating the stored data so we can re-save it instead of saving a new item.
+	
+	function validate(){
+	
+	}; 
 	
 	//deleting one item from localStorage
 	function deleteItem(){
@@ -265,12 +281,13 @@ window.addEventListener("DOMContentLoaded", function(){
 		} else {
 			var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
 			if(questionThem){
-			localStorage.clear()
-			alert("Your Satchel is now empty!");
+				localStorage.clear()
+				alert("Your Satchel is now empty!");
+				window.location.reload();
 			} else {
-			alert("Your books are safe in the Satchel"); 
+				alert("Your books are safe in the Satchel");
+				window.location.reload(); 
 			}
-			window.location.reload();
 			return false; 
 		}
 	};
