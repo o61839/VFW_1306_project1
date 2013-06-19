@@ -188,11 +188,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#"; 
 		deleteLink.key = key; 
 		var deleteText = "Delete Book";
-		//deleteLink.addEventListener("click", deleteItem); 
+		deleteLink.addEventListener("click", deleteItem); 
 		deleteLink.innerHTML = deleteText; 
 		linksLi.appendChild(deleteLink); 
 	}; 
 	
+	//repopulates the fields of the form so we can edit the information. 
 	function editItem(){
 		//Grab the data from our item from Local Storage 
 		var value = localStorage.getItem(this.key); //editLink.key b/c the function is attached
@@ -242,6 +243,19 @@ window.addEventListener("DOMContentLoaded", function(){
 			} 
 		}
 		$("comments").value = myData.comments[1];
+	};
+	
+	//deleting one item from localStorage
+	function deleteItem(){
+		var questionThem = confirm("Pressing OK will remove the book from the Satchel. Are you sure?");
+			if(questionThem){
+			localStorage.removeItem(this.key)
+			alert("This book was successfully deleted from the Satchel.")
+			} else {
+			alert("Your book is safe in the Satchel"); 
+			}
+			window.location.reload();
+			return false; 
 	};
 	
 	//clearInfo function goes with the clearData button (Empty Satchel)
