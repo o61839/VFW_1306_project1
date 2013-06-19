@@ -32,10 +32,12 @@
 	<form action="#" method="post" id="myBookQuestions">
 		<fieldset>
 			<legend>Your book's information</legend>
+			<ul id="errors"></ul>
 			<ul id="Book">
-				<li><label for="bname">Book's Name:</label><br /><input type="text" id="bname" /></li>
-				<li><label for="aname">Author(s):</label><br /><input type="text" id="aname" /></li>
-				<li><label for="isbn">ISBN:</label><br /><input type="text" id="isbn" /></li>
+			<span>* fields are required</span>
+				<li><label for="bname">* Book's Name:</label><br /><input type="text" id="bname" /></li>
+				<li><label for="aname">* Author(s):</label><br /><input type="text" id="aname" /></li>
+				<li><label for="isbn">* ISBN:</label><br /><input type="text" id="isbn" /></li>
 				<li>What date did you add this book to your library?
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
 					<br /><input type="date" id="dateAdded"  />
@@ -44,7 +46,7 @@
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
 					<br /><input type="date" id="datePublished"  />
 				</li>
-				<li>What is the genre of the book?
+				<li>* What is the genre of the book?
 					<ul>	
 						<!-- <li id="selectGenre"><label for="genre">Add Genre:</label><br /></li> -->
 						<li id="selectGenre"></li>
@@ -54,7 +56,7 @@
 		</fieldset>
 		<fieldset>
 			<legend>Optional Information</legend>
-			<ul>
+			<ul id="questions">
 				<li>Have you read this book?
 					<ul>
 						<li><input type="radio" checked value="read" id="read" name="choice"/><label for="read">Read It</label></li>

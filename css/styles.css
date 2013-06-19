@@ -20,6 +20,12 @@ h2 {
 	text-align: center; 
 }
 
+span {
+	font-variant: small-caps; 
+	font-size: 16px; 
+	color: #111111;
+}
+
 p {
 	color: #47006B; 
 	margin: 10px;

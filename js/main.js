@@ -257,8 +257,64 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//validating the stored data so we can re-save it instead of saving a new item.
 	
-	function validate(){
-	
+	function validate(e){
+		//define the elements we want to check
+		var getBname = $("bname"); 
+		var getAname = $("aname");
+		var getISBN = $("isbn"); 
+		var getDateAdded = $("dateAdded");
+		var getDatePubl = $("datePublished");
+		var getGenres = $("genres"); 
+		
+		//reset error messages
+		errMsg.innerHTML = ""' 
+		getGenres.style.border = "1px solid black";
+		getBname.style.border = "1px solid black";
+		getAname.style.border = "1px solid black"; 
+		getISBN.style.border = "1px solid black";
+		
+		//Get Error Messages
+		var messageAry = []; 
+		//Genre validation
+		if(getGenres.value == "--Choose A Genre--"){
+			var genreError = "Please choose a genre."; 
+			getGenres.style.border = "1px solid red"; 
+			messageAry.push(genreError);
+		}
+		//book name validation
+		if(getBname.value === ""){
+			var bNameError = "Please add your book's name."; 
+			getBname.style.border = "1px solid red"; 
+			messageAry.push(bNameError);
+		}
+		//author validation
+		if(getAname.value === ""){
+			var aNameError = "Please add your book's author."; 
+			getAname.style.border = "1px solid red"; 
+			messageAry.push(aNameError);
+		}
+		//ISBN validation 
+		if(getISBN.length != 10){
+			if(getISBN.length != 13){
+				var isbnError = "Please correct the book's ISBN-10 or ISBN-13."; 
+				getISBN.style.border = "1px solid red"; 
+				messageAry.push(isbnError);
+			}
+		}
+		//move error messages to screen
+		if(messageAry.length >= 1){
+			for(i=0, j=messageAry.length; i<j; i++){
+				var txt = document.createElement("li"); 
+				txt.innerHTML = messageAry[i].value; 
+				errMsg.appendChild(txt); 
+			}
+			e.preventDefault(); 
+			return false; 	
+		} else {
+			//run store data function if all is OK. 
+			submitInfo(); 
+		}
+	//possibly add dates back in here...or verify that the date added to library is after the date published. 	
 	}; 
 	
 	//deleting one item from localStorage
@@ -304,11 +360,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	var permanentSelection; 
 	var coverSelection; 
 	var typeSelection;  
-	genreCategory ();  
+	genreCategory (); 
+	var errMsg = $("errors");  
 	
 	//Set link & Submit Click Events
 	var saveBook 		= $("submitButton"); 
-	saveBook.addEventListener("click", submitInfo);
+	saveBook.addEventListener("click", validate);
 	var showBook 		= $("showSatchel"); 
 	showBook.addEventListener("click", showInfo);
 	var goToForm 		= $("goHome");
