@@ -141,7 +141,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		editLink.href = "#"; 
 		editLink.key = key;
 		var editText = "Edit Book"; 
-		//editLink.addEventListener("click", editItem)
+		editLink.addEventListener("click", editItem)
 		editLink.innerHTML = editText; 
 		linksLi.appendChild(editLink); 
 		//add line break
@@ -155,7 +155,59 @@ window.addEventListener("DOMContentLoaded", function(){
 		//deleteLink.addEventListener("click", deleteItem); 
 		deleteLink.innerHTML = deleteText; 
 		linksLi.appendChild(deleteLink); 
-	} 
+	}; 
+	
+	function editItem(){
+		//Grab the data from our item from Local Storage 
+		var value = localStorage.getItem(this.key); //editLink.key b/c the function is attached
+		var myData = JSON.parse(value); 
+		//show the form
+		toggleControls("off"); 
+		//populate the form fields with the current localStorage Values. 
+		$("bname").value = myData.bname[1]; 
+		$("aname").value = myData.aname[1];
+		$("isbn").value = myData.isbn[1];
+		$("dateAdded").value = myData.dateAdded[1];
+		$("datePublished").value = myData.datePublished[1];
+		$("genres").value = myData.genres[1];
+		var selected = document.getElementById("myBookQuestions").choice;
+		for(var s=0, t=selected.length; s<t; s++){
+			if(selected[s].value == "read" && myData.choice == "read"){
+				selected[s].setAttribute("checked", "checked"); 
+			} else if (selected[s].value == "not_read" && myData.choice == "not_read") {
+				selected[s].setAttribute("checked", "checked");
+			}
+		}
+		$("rating").value = myData.rating[1];
+		var selectedP 	= document.getElementById("myBookQuestions").permanent;
+		for(var s=0, t=selectedP.length; s<t; s++){
+			if(selectedP[s].value == "purchased" && myData.choice == "purchased"){
+				selectedP[s].setAttribute("checked", "checked");
+			} else if (selectedP[s].value == "borrowed" && myData.choice == "borrowed"){
+				selectedP[s].setAttribute("checked", "checked");
+			}
+		}
+		var selectedC 	= document.getElementById("myBookQuestions").cover;
+		for(var s=0, t=selectedC.length; s<t; s++){
+			if(selectedC[s].value == "paperback" && myData.choice == "paperback"){
+				selectedC[s].setAttribute("checked", "checked");
+			} else if (selectedC[s].value == "hardcover" && myData.choice == "hardcover"){
+				selectedC[s].setAttribute("checked", "checked");
+			} else if (selectedC[s].value == "mobile" && myData.choice == "mobile"){
+				selectedC[s].setAttribute("checked", "checked");
+			}
+		}
+		var selectedT 	= document.getElementById("myBookQuestions").type;
+		for(var s=0, t=selectedT.length; s<t; s++){
+			if(selectedT[s].value == "fiction" && myData.choice == "fiction"){
+				selectedT[s].setAttribute("checked", "checked");
+			} else if (selectedT[s].value == "nonfiction" && myData.choice == "nonfiction"){
+				selectedT[s].setAttribute("checked", "checked");
+			} 
+		}
+		$("comments").value = myData.comments[1];
+	};
+
 	
 	//Write data from Local Storage to Browser
 	function showInfo(){
