@@ -106,6 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//function to save the form data into local storage. 
 	function submitInfo(){
+	//need to fix this function now so it doesn't add new keyValue if there already is one. 
 		keyValue 			= Math.floor(Math.random()*100001);
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
