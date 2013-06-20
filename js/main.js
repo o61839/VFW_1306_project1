@@ -4,6 +4,7 @@
 	June 13, 2013
 	June 20, 2013
 */
+//adding this comment just because I need something to commit
 
 //Wait until the DOM is ready. 
 window.addEventListener("DOMContentLoaded", function(){
