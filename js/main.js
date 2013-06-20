@@ -139,7 +139,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
-		//$("myBookQuestions").style.display
+		//sets focus to the top of the form.
 		document.getElementById("bname").focus(); 
 		resetForm(); 
 	};
@@ -325,6 +325,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				errMsg.appendChild(txt); 
 			}
 			e.preventDefault(); 
+			//turns focus to top of form.
 			document.getElementById("bname").focus(); 
 			return false; 	
 		} else {
