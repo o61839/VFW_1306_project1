@@ -107,7 +107,11 @@ window.addEventListener("DOMContentLoaded", function(){
 	//function to save the form data into local storage. 
 	function submitInfo(key){
 		//If there is no key, this means this is a brand new item and we need a new key
-		if(!key){
+		//had (!key) but wasn't working...so I tried this. It still isn't working correctly. 
+		//at first save after edit, there appears to be two saves 
+		//refresh the satchel and there is only one. 
+		//hmmm? wonky?!
+		if(key == ""){
 			keyValue 			= Math.floor(Math.random()*100001);
 		} else {
 			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
