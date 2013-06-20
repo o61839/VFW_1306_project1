@@ -334,7 +334,17 @@ window.addEventListener("DOMContentLoaded", function(){
 			//remember this key value was passed through the editSubmit eventListener as a property
 			submitInfo(this.key); 
 		}
-	//possibly add dates back in here...or verify that the date added to library is after the date published. 	
+	//possibly add dates back in here...or verify that the date added to library is after the date published.
+	/*
+	function dateCheck (){
+		take the date date added to library
+		subtract
+		date published
+		if # < 0 
+		then shoot out an error
+		b/c date added to library can not be before date published
+	}
+	*/ 	
 	}; 
 	
 	//deleting one item from localStorage
