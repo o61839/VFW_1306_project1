@@ -105,9 +105,16 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 	//function to save the form data into local storage. 
-	function submitInfo(){
-	//need to fix this function now so it doesn't add new keyValue if there already is one. 
-		keyValue 			= Math.floor(Math.random()*100001);
+	function submitInfo(key){
+		//If there is no key, this means this is a brand new item and we need a new key
+		if(!key){
+			keyValue 			= Math.floor(Math.random()*100001);
+		}else {
+			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
+			//the key is the same key that's been passed along from the editSubmit event handler
+			//to the validate function, and then passed here, into the submitInfo function
+			keyValue=key
+		}	
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
 		readBookChoices();
@@ -132,6 +139,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
+		//$("myBookQuestions").style.display
+		document.getElementById("bname").focus(); 
 		resetForm(); 
 	};
 	
@@ -268,7 +277,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getGenres = $("genres"); 
 		
 		//reset error messages
-		errMsg.innerHTML = ""' 
+		errMsg.innerHTML = ""; 
 		getGenres.style.border = "1px solid black";
 		getBname.style.border = "1px solid black";
 		getAname.style.border = "1px solid black"; 
@@ -294,26 +303,35 @@ window.addEventListener("DOMContentLoaded", function(){
 			getAname.style.border = "1px solid red"; 
 			messageAry.push(aNameError);
 		}
-		//ISBN validation 
-		if(getISBN.length != 10){
-			if(getISBN.length != 13){
+		//ISBN validation ***This does not work yet
+		/*if(getISBN.length == 10){
+			if(getISBN.length == 13){
+				//do nothing? 
+				//tried to do !== 10/13 
+				//tried to do == !10 & !13
+				//neither worked.
+			} else {
 				var isbnError = "Please correct the book's ISBN-10 or ISBN-13."; 
 				getISBN.style.border = "1px solid red"; 
 				messageAry.push(isbnError);
 			}
 		}
+		*/
 		//move error messages to screen
 		if(messageAry.length >= 1){
 			for(i=0, j=messageAry.length; i<j; i++){
 				var txt = document.createElement("li"); 
-				txt.innerHTML = messageAry[i].value; 
+				txt.innerHTML = messageAry[i]; 
 				errMsg.appendChild(txt); 
 			}
 			e.preventDefault(); 
+			document.getElementById("bname").focus(); 
 			return false; 	
 		} else {
 			//run store data function if all is OK. 
-			submitInfo(); 
+			//send key value from edit function
+			//remember this key value was passed through the editSubmit eventListener as a property
+			submitInfo(this.key); 
 		}
 	//possibly add dates back in here...or verify that the date added to library is after the date published. 	
 	}; 
