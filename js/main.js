@@ -221,36 +221,36 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("genres").value = myData.genre[1];
 		var selected = document.getElementById("myBookQuestions").choice;
 		for(var s=0, t=selected.length; s<t; s++){
-			if(selected[s].value == "read" && myData.readBook == "read"){
+			if(selected[s].value == "read" && myData.readBook[1] == "read"){
 				selected[s].setAttribute("checked", "checked"); 
-			} else if (selected[s].value == "not_read" && myData.readBook == "not_read") {
+			} else if (selected[s].value == "not_read" && myData.readBook[1] == "not_read") {
 				selected[s].setAttribute("checked", "checked");
 			}
 		}
 		$("rating").value = myData.rating[1];
 		var selectedP 	= document.getElementById("myBookQuestions").permanent;
 		for(var s=0, t=selectedP.length; s<t; s++){
-			if(selectedP[s].value == "purchased" && myData.purchased == "purchased"){
+			if(selectedP[s].value == "purchased" && myData.purchased[1] == "purchased"){
 				selectedP[s].setAttribute("checked", "checked");
-			} else if (selectedP[s].value == "borrowed" && myData.purchased == "borrowed"){
+			} else if (selectedP[s].value == "borrowed" && myData.purchased[1] == "borrowed"){
 				selectedP[s].setAttribute("checked", "checked");
 			}
 		}
 		var selectedC 	= document.getElementById("myBookQuestions").cover;
 		for(var s=0, t=selectedC.length; s<t; s++){
-			if(selectedC[s].value == "paperback" && myData.cover == "paperback"){
+			if(selectedC[s].value == "paperback" && myData.cover[1] == "paperback"){
 				selectedC[s].setAttribute("checked", "checked");
-			} else if (selectedC[s].value == "hardcover" && myData.cover == "hardcover"){
+			} else if (selectedC[s].value == "hardcover" && myData.cover[1] == "hardcover"){
 				selectedC[s].setAttribute("checked", "checked");
-			} else if (selectedC[s].value == "mobile" && myData.cover == "mobile"){
+			} else if (selectedC[s].value == "mobile" && myData.cover[1] == "mobile"){
 				selectedC[s].setAttribute("checked", "checked");
 			}
 		}
 		var selectedT 	= document.getElementById("myBookQuestions").type;
 		for(var s=0, t=selectedT.length; s<t; s++){
-			if(selectedT[s].value == "fiction" && myData.fiction == "fiction"){
+			if(selectedT[s].value == "fiction" && myData.fiction[1] == "fiction"){
 				selectedT[s].setAttribute("checked", "checked");
-			} else if (selectedT[s].value == "nonfiction" && myData.fiction == "nonfiction"){
+			} else if (selectedT[s].value == "nonfiction" && myData.fiction[1] == "nonfiction"){
 				selectedT[s].setAttribute("checked", "checked");
 			} 
 		}
