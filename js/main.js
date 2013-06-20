@@ -107,10 +107,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	//function to save the form data into local storage. 
 	function submitInfo(key){
 		//If there is no key, this means this is a brand new item and we need a new key
-		//had (!key) but wasn't working...so I tried this. It still isn't working correctly. 
-		//at first save after edit, there appears to be two saves 
-		//refresh the satchel and there is only one. 
-		//hmmm? wonky?!
 		if(key == ""){
 			keyValue 			= Math.floor(Math.random()*100001);
 		} else {
@@ -156,7 +152,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				toggleControls("off"); //saves user a step to getting back to the form. 
 		} else {
 			var makeDiv 	= $("bookInfoDisplay"); 
-			makeDiv.innerHTML = "";
+			makeDiv.innerHTML = ""; //resets the wonky storage issue
 			var makeList 	= document.createElement("ul");
 			makeDiv.appendChild(makeList);  
 			for(var i=0, j=localStorage.length; i<j; i++){
