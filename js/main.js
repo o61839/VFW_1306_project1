@@ -156,6 +156,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				toggleControls("off"); //saves user a step to getting back to the form. 
 		} else {
 			var makeDiv 	= $("bookInfoDisplay"); 
+			makeDiv.innerHTML = "";
 			var makeList 	= document.createElement("ul");
 			makeDiv.appendChild(makeList);  
 			for(var i=0, j=localStorage.length; i<j; i++){
