@@ -71,6 +71,10 @@ ul li {
 	display: block; 
 }
 
+#errors {
+	color: red; 
+}
+
 #submitButton {
  	background-color: #400099;
  	font-size: 0.9pc;

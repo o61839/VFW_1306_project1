@@ -109,11 +109,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		//If there is no key, this means this is a brand new item and we need a new key
 		if(!key){
 			keyValue 			= Math.floor(Math.random()*100001);
-		}else {
+		} else {
 			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
 			//the key is the same key that's been passed along from the editSubmit event handler
 			//to the validate function, and then passed here, into the submitInfo function
-			keyValue=key
+			keyValue			= key;
 		}	
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
@@ -140,7 +140,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
 		//sets focus to the top of the form.
-		document.getElementById("bname").focus(); 
+		document.getElementById("bookInfoDisplay").focus();
 		resetForm(); 
 	};
 	
@@ -178,6 +178,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeItemLinks(localStorage.key(i), linksLi); //create links for each item in localStorage
 			}
 		}
+		document.getElementById("bookInfoDisplay").focus();
 	};
 	
 	//function edit/delete links
@@ -263,6 +264,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//so we can use that value when we save the data we edited. 
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key; 
+		document.getElementById("bookInfoDisplay").focus();
 	};
 	
 	//validating the stored data so we can re-save it instead of saving a new item.
@@ -275,32 +277,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		var getDateAdded = $("dateAdded");
 		var getDatePubl = $("datePublished");
 		var getGenres = $("genres"); 
+		//Get Error Messages
+		var messageAry = []; 
 		
 		//reset error messages
 		errMsg.innerHTML = ""; 
-		getGenres.style.border = "1px solid black";
 		getBname.style.border = "1px solid black";
 		getAname.style.border = "1px solid black"; 
 		getISBN.style.border = "1px solid black";
+		getGenres.style.border = "1px solid black";
 		
-		//Get Error Messages
-		var messageAry = []; 
-		//Genre validation
-		if(getGenres.value == "--Choose A Genre--"){
-			var genreError = "Please choose a genre."; 
-			getGenres.style.border = "1px solid red"; 
-			messageAry.push(genreError);
-		}
 		//book name validation
 		if(getBname.value === ""){
 			var bNameError = "Please add your book's name."; 
-			getBname.style.border = "1px solid red"; 
+			getBname.style.border = "3px solid red"; 
 			messageAry.push(bNameError);
 		}
 		//author validation
 		if(getAname.value === ""){
 			var aNameError = "Please add your book's author."; 
-			getAname.style.border = "1px solid red"; 
+			getAname.style.border = "3px solid red"; 
 			messageAry.push(aNameError);
 		}
 		//ISBN validation ***This does not work yet
@@ -312,11 +308,19 @@ window.addEventListener("DOMContentLoaded", function(){
 				//neither worked.
 			} else {
 				var isbnError = "Please correct the book's ISBN-10 or ISBN-13."; 
-				getISBN.style.border = "1px solid red"; 
+				getISBN.style.border = "3px solid red"; 
 				messageAry.push(isbnError);
 			}
 		}
 		*/
+		
+		//Genre validation
+		if(getGenres.value == "--Choose A Genre--"){
+			var genreError = "Please choose a genre."; 
+			getGenres.style.border = "3px solid red"; 
+			messageAry.push(genreError);
+		}
+		
 		//move error messages to screen
 		if(messageAry.length >= 1){
 			for(i=0, j=messageAry.length; i<j; i++){
@@ -344,7 +348,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		then shoot out an error
 		b/c date added to library can not be before date published
 	}
-	*/ 	
+	*/ 
 	}; 
 	
 	//deleting one item from localStorage
@@ -356,14 +360,14 @@ window.addEventListener("DOMContentLoaded", function(){
 			} else {
 			alert("Your book is safe in the Satchel"); 
 			}
-			window.location.reload();
-			return false; 
+			document.getElementById("bookInfoDisplay").focus();
 	};
 	
 	//clearInfo function goes with the clearData button (Empty Satchel)
 	var clearInfo = function (){
 		if(localStorage.length === 0){
-			alert("There are no books in your Satchel to remove."); 
+			alert("There are no books in your Satchel to remove.");
+			window.location.reload();  
 		} else {
 			var questionThem = confirm("Pressing OK will empty your Satchel. Are you sure?");
 			if(questionThem){
@@ -374,14 +378,14 @@ window.addEventListener("DOMContentLoaded", function(){
 				alert("Your books are safe in the Satchel");
 				window.location.reload(); 
 			}
-			return false; 
+			document.getElementById("bookInfoDisplay").focus(); 
 		}
 	};
 
 	//returnHome function returns the two buttons and shows the Form and hides the Satchel
 	var returnHome = function (){
 		toggleControls("off");
-		resetForm();		
+		document.getElementById("bookInfoDisplay").focus();	
 	};
 	
 	//Variable defaults
@@ -391,7 +395,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	var coverSelection; 
 	var typeSelection;  
 	genreCategory (); 
-	var errMsg = $("errors");  
+	var errMsg = $("errors"); 
+  
 	
 	//Set link & Submit Click Events
 	var saveBook 		= $("submitButton"); 
