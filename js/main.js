@@ -328,6 +328,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				var txt = document.createElement("li"); 
 				txt.innerHTML = messageAry[i]; 
 				errMsg.appendChild(txt); 
+				errMsg.style.border = "3px solid red"; 
 			}
 			e.preventDefault(); 
 			//turns focus to top of form.
