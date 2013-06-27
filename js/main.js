@@ -108,14 +108,14 @@ window.addEventListener("DOMContentLoaded", function(){
 	//function to save the form data into local storage. 
 	function submitInfo(key){
 		//If there is no key, this means this is a brand new item and we need a new key
-		//if(key === " "){
+		if(!key){
 			keyValue 			= Math.floor(Math.random()*100001);
-		//} else {
+		} else {
 			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
 			//the key is the same key that's been passed along from the editSubmit event handler
 			//to the validate function, and then passed here, into the submitInfo function
-		/*	keyValue			= key;
-		}*/	
+			keyValue			= key;
+		}
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
 		readBookChoices();
