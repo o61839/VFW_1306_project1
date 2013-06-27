@@ -141,7 +141,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
 		//sets focus to the top of the form.
-		//window.location(additem.html#reloadHere); ----- this deletes the genre selector
+		//window.location(additem.html#reloadHere); //this deletes the genre selector
+		//genreCategory (); //this was suggested to reload the genre selector
 		//window.location("reloadHere"); ---- this does nothing
 		//window.location(reloadHere); ----- this keeps the title and the author in the form. 
 		//document.getElementById("bookInfoDisplay").focus(); ---- only works half the time
@@ -153,8 +154,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	function showInfo(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-				alert("Your Satchel is empty.");
-				toggleControls("off"); //saves user a step to getting back to the form. 
+			alert("Your Satchel is empty, so default data was added.");
+			toggleControls("off"); //saves user a step to getting back to the form. 
+			autoFillData();
 		} else {
 			var makeDiv 	= $("bookInfoDisplay"); 
 			makeDiv.innerHTML = ""; //resets the wonky storage issue
@@ -186,6 +188,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		document.getElementById("bookInfoDisplay").focus();
 		//window.location.reload(true); ------ this resets the form and doesn't display the satchel. 
+	};
+	
+	function autoFillData(){
+		//The actual JSON OBJECT data required for this to work is coming from the json.js file, which is loaded from our .html page
+		//store the JSOn OBJECT into localStorage
+		for(var n in json){
+			keyValue 			= Math.floor(Math.random()*100001);
+			localStorage.setItem(keyValue, JSON.stringify(json[n])); 
+		}
 	};
 	
 	//function edit/delete links
