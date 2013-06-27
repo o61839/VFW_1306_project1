@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!-- 	Jenney Grover
 		VFW 1306
-		Project 1, 2, and 3
+		Project 1, 2, 3, and 4
 		The Satchel 
 -->
 <html lang='en'>
-	<head>
+	<head> 
     	<title>Add a Book</title>
     	<meta charset="utf-8" /> 
         <meta name="robots" content="index,follow" />
@@ -25,8 +25,10 @@
 	</head>
 	<body id="mainContent">
 		<header>
+		<a name="reloadHere">
     		<h1>"The Satchel"</h1>
     		<h2>Add a title to your library. </h2>
+    	</a>
 		</header>
 	
 	<form action="#" method="post" id="myBookQuestions">
@@ -34,9 +36,16 @@
 			<legend>Your book's information</legend>
 			<ul id="errors"></ul>
 			<ul id="Book">
-			<span>* fields are required</span>
+			<span>* fields are required
 				<li><label for="bname">* Book's Name:</label><br /><input type="text" id="bname" /></li>
 				<li><label for="aname">* Author(s):</label><br /><input type="text" id="aname" /></li>
+				<li>* What is the genre of the book?
+					<ul>	
+						<!-- <li id="selectGenre"><label for="genre">Add Genre:</label><br /></li> -->
+						<li id="selectGenre"></li>
+					</ul>
+				</li>
+			</span>
 				<li><label for="isbn">ISBN:</label><br /><input type="text" id="isbn" /></li>
 				<li>What date did you add this book to your library?
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
@@ -45,12 +54,6 @@
 				<li>What date was the book published?
 				<!-- the next line is my goal for the date...however it only works in Chrome...WHY? -->
 					<br /><input type="date" id="datePublished"  />
-				</li>
-				<li>* What is the genre of the book?
-					<ul>	
-						<!-- <li id="selectGenre"><label for="genre">Add Genre:</label><br /></li> -->
-						<li id="selectGenre"></li>
-					</ul>
 				</li>
 				</ul>
 		</fieldset>

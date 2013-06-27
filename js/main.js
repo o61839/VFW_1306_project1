@@ -1,8 +1,9 @@
 /* 	Jenney Grover
 	VFW 1306
-	Project 2 and 3
+	Project 2, 3, and 4
 	June 13, 2013
 	June 20, 2013
+	June 27, 2013
 */
 
 //Wait until the DOM is ready. 
@@ -107,14 +108,14 @@ window.addEventListener("DOMContentLoaded", function(){
 	//function to save the form data into local storage. 
 	function submitInfo(key){
 		//If there is no key, this means this is a brand new item and we need a new key
-		if(key == ""){
+		//if(key === " "){
 			keyValue 			= Math.floor(Math.random()*100001);
-		} else {
+		//} else {
 			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
 			//the key is the same key that's been passed along from the editSubmit event handler
 			//to the validate function, and then passed here, into the submitInfo function
-			keyValue			= key;
-		}	
+		/*	keyValue			= key;
+		}*/	
 		//Gather up all our form field values and store in an object. 
 		//Object properties contain array with the form label and input value. 
 		readBookChoices();
@@ -140,7 +141,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
 		alert("Your book is in your Satchel");
 		//sets focus to the top of the form.
-		document.getElementById("bookInfoDisplay").focus();
+		//window.location(additem.html#reloadHere); ----- this deletes the genre selector
+		//window.location("reloadHere"); ---- this does nothing
+		//window.location(reloadHere); ----- this keeps the title and the author in the form. 
+		//document.getElementById("bookInfoDisplay").focus(); ---- only works half the time
+		//window.location.reload(true); ---- possibly resets the localStorage
 		resetForm(); 
 	};
 	
@@ -180,6 +185,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 		document.getElementById("bookInfoDisplay").focus();
+		//window.location.reload(true); ------ this resets the form and doesn't display the satchel. 
 	};
 	
 	//function edit/delete links
@@ -362,7 +368,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			} else {
 			alert("Your book is safe in the Satchel"); 
 			}
-			document.getElementById("bookInfoDisplay").focus();
+			//document.getElementById("bookInfoDisplay").focus();
+			//window.location.reload(true); 
 	};
 	
 	//clearInfo function goes with the clearData button (Empty Satchel)
@@ -380,7 +387,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				alert("Your books are safe in the Satchel");
 				window.location.reload(); 
 			}
-			document.getElementById("bookInfoDisplay").focus(); 
+			//document.getElementById("bookInfoDisplay").focus(); 
+			//window.location.reload(true); 
 		}
 	};
 

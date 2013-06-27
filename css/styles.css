@@ -1,29 +1,35 @@
 /* 
 	Jenney Grover
 	VFW 1306
-	Project 2 and 3
+	Project 2, 3, and 4
 	June 13, 2013
 	June 20, 2013
+	June 27, 2013
 */
 
-body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding: 10px; color: #47006B; background: #FEFFD9; font-size: 1.3pc;}
+body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding: 10px; color: #47006B; background: #C1C1C1; font-size: 1.3pc;}
 #content{width: 480px; height: 690px; overflow: scroll;}
+/*FEFFD9 -- background*/
 /* does having this width and height change the html dimensions listed previously? */
+
 
 h1 {
 	margin: 10px 15px; 
 	text-align: center; 
+	color: #47006B;
 }
 
 h2 {
 	margin: 12px 15px; 
 	text-align: center; 
+	color: #47006B; 
 }
 
 span {
 	font-variant: small-caps; 
-	font-size: 16px; 
-	color: #111111;
+	font-size: 18px; 
+	font: bold; 
+	color: #990071;
 }
 
 p {
@@ -36,7 +42,7 @@ p {
 }
 
 a {
-	color: #009999;
+	color: #990071;
 	margin: 8px; 
 	font-size: 16px; 
 }
@@ -50,7 +56,14 @@ form {
 	padding: 10px;
 	border-style: double; 
 	border-color: #2D006B;
-	background: #EEE5FF; 
+	border: 3px solid; 
+	border-radius: 25px; 
+	background: #FEFFD9; 
+	/*EEE5FF -- form color*/
+}
+
+div {
+	box-shadow: 10px 10px 5px #888888;
 }
 
 li {
