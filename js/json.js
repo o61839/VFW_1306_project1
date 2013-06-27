@@ -1,3 +1,9 @@
+/* 	Jenney Grover
+	VFW 1306
+	Project 4
+	June 27, 2013
+*/
+
 var json = {
 	"book1": {
 		nameBook 	: ["Name: ", "To Kill a Mockingbird"],
