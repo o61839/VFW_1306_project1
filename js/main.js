@@ -172,6 +172,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				var obj 	= JSON.parse(value);   
 				var makeSubList	= document.createElement("ul"); 
 				makeli.appendChild(makeSubList); 
+			//add image information
+				getImage(obj.readBook[1], makeSubList); 
 				for(var n in obj){
 					var makeSubli = document.createElement("li");
 					makeSubList.appendChild(makeSubli);
@@ -188,6 +190,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		document.getElementById("bookInfoDisplay").focus();
 		//window.location.reload(true); ------ this resets the form and doesn't display the satchel. 
+	};
+	
+	//Get the image for the right category and display it
+	function getImage(catRead, makeSubList){ //scope issue of makeSubList element. Needed to pass it out of previous function and then pass into new function
+		var imageLi = document.createElement("li"); 
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement("img");
+		//this tags the image
+		//set new variable catRead to the variables of the choices
+		var setSource = newImg.setAttribute("src", "images/"+ catRead +".png"); 
+		//set image to screen
+		imageLi.appendChild(newImg);
 	};
 	
 	function autoFillData(){
