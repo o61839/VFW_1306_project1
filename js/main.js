@@ -195,6 +195,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Get the image for the right category and display it
 	//passing in the obj information to use inside this function...it becomes the new variable catRead
+	//catRead stands for category read or not read
 	function getImage(catRead, makeSubList){ //scope issue of makeSubList element. Needed to pass it out of previous function and then pass into new function
 		var imageLi = document.createElement("li"); 
 		makeSubList.appendChild(imageLi);
