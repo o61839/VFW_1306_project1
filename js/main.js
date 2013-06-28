@@ -173,6 +173,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				var makeSubList	= document.createElement("ul"); 
 				makeli.appendChild(makeSubList); 
 			//add image information
+			//passing the obj information to use outside of this function
 				getImage(obj.readBook[1], makeSubList); 
 				for(var n in obj){
 					var makeSubli = document.createElement("li");
@@ -193,6 +194,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 	//Get the image for the right category and display it
+	//passing in the obj information to use inside this function...it becomes the new variable catRead
 	function getImage(catRead, makeSubList){ //scope issue of makeSubList element. Needed to pass it out of previous function and then pass into new function
 		var imageLi = document.createElement("li"); 
 		makeSubList.appendChild(imageLi);
